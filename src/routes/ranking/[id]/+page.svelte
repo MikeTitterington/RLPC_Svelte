@@ -5,6 +5,10 @@
   	export let data;
     let powerRankings = data.powerRankings;
     let league = data.league;
+    $: {
+        powerRankings = data.powerRankings;
+        league = data.league;
+    }
 </script>
 {#if powerRankings}
     <div class='back dark:bg-gray-800'  in:fade="{{ duration:1000, ease:'circ' }}">

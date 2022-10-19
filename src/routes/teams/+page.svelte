@@ -1,6 +1,7 @@
 <script>
 	import Team from '../../components/Team.svelte';
 	let allTeams = [];
+    import { fade } from 'svelte/transition'
     /** @type {import('./$types').PageData} */
     export let data
 	let searchTerm = "";

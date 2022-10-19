@@ -3,8 +3,10 @@
 	    <title>{team[0][5]}</title>
     {/if}
 </svelte:head>
-<script>
+<script context='module'>
     import { fade } from 'svelte/transition'
+</script>
+<script>
     /** @type {import('./$types').PageData} */
     export let data
     let team = data.team

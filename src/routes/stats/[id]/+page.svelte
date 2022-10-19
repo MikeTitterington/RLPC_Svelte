@@ -26,7 +26,7 @@
         league = data.league
     }
 </script>
-<div transition:fade="{{ duration:1000, ease:'circ' }}">
+<div in:fade="{{ duration:1000, ease:'circ' }}">
     <h1 class='text-4xl font-bold text-center pt-4'>{league} Stats</h1>
     <div class='py-4 grid gap-4 md:grid-cols-2 grid-cols-1'>
         {#if goals}

@@ -153,7 +153,7 @@
 <svelte:head>
 	<title>Compare Teams</title>
 </svelte:head>
-<div transition:fade="{{ duration:1000, ease:'circ' }}">
+<div in:fade="{{ duration:1000, ease:'circ' }}">
 	<div class='py-4 grid gap-4 md:grid-cols-2 grid-cols-2'>
         <select bind:value={searchTerm} class="my-8 w-full rounded-md text-lg p-4 border-2 border-gray-200 text-center bg-gray-100 text-gray-800">
             {#each teams as team}

@@ -35,7 +35,7 @@
 <svelte:head>
 	<title>Free Agents</title>
 </svelte:head>
-<div transition:fade="{{ duration:1000, ease:'circ' }}">
+<div in:fade="{{ duration:1000, ease:'circ' }}">
 
 	<input class='my-8 w-full rounded-md text-lg p-4 border-2 border-gray-200' type='text' bind:value={searchTerm} placeholder='Search Players' >
 

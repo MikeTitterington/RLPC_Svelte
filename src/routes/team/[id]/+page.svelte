@@ -22,7 +22,7 @@
     }
 	import Player from '../../../components/Player.svelte';
 </script>
-<div transition:fade="{{ duration:1000, ease:'circ' }}" class='my-8 py-4 w-full h-full grid gap-4 grid-cols-1 p-8 dark:bg-gray-600 text-gray-300 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center'>
+<div in:fade="{{ duration:1000, ease:'circ' }}" class='my-8 py-4 w-full h-full grid gap-4 grid-cols-1 p-8 dark:bg-gray-600 text-gray-300 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center'>
     {#if team[0]}
         <div class='py-4 grid gap-4 grid-cols-2 text-center'>
             <div class='text-center items-center'>

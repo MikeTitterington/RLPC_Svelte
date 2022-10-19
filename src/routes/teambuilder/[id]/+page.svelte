@@ -182,7 +182,7 @@
 <svelte:head>
 	<title>Team Builder</title>
 </svelte:head>
-<div transition:fade="{{ duration:1000, ease:'circ' }}">
+<div in:fade="{{ duration:1000, ease:'circ' }}">
     <input class='my-8 w-full rounded-md text-lg p-4 border-2 border-gray-200 text-gray-800' type='text' bind:value={searchTerm} placeholder='Search Players' >
     <div class='grid gap-4 md:grid-cols-2 grid-cols-2'>
         <input class='my-8 rounded-md text-lg p-4 border-2 border-gray-200 text-gray-800' type='text' bind:value={capSpace} placeholder='Cap Space' >

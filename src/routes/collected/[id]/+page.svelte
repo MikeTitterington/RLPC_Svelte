@@ -2,6 +2,7 @@
 	<title>Team Stats</title>
 </svelte:head>
 <script context='module'>
+    import { fade } from 'svelte/transition'
     function sortTable(n) {
         var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
         table = document.getElementById("myTable2");
@@ -120,10 +121,9 @@
         stats = data.stats
         League = data.League
     }
-    import { fade } from 'svelte/transition'
 </script>
 
-<div class="flex flex-col">
+<div class="flex flex-col" in:fade="{{ duration:1000, ease:'circ' }}">
     <h1 class='font-bold text-3xl p-4 text-center'>{League} League Teams Leaderboard</h1>
     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">

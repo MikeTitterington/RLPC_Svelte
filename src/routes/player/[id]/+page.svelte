@@ -19,12 +19,12 @@
 <svelte:head>
 	<title>{name}</title>
 </svelte:head>
-<div transition:fade="{{ duration:1000, ease:'circ' }}">
+<div in:fade="{{ duration:1000, ease:'circ' }}">
     {#if player}
     <h1 class='text-4xl font-bold text-center'>{name.replace(/[^\w\s]/gi, '')}</h1>
     <div class='py-4 grid gap-4 md:grid-cols-2 grid-cols-1'>
         {#if  stats17 && stats17 != [] && stats17[0] && stats17[0][1] > 0}
-            <div class='p-6 bg-gray-600  text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center' transition:fade="{{ duration:1000, ease:'circ' }}">
+            <div class='p-6 bg-gray-600  text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center' in:fade="{{ duration:1000, ease:'circ' }}">
                 <h1 class='text-2xl font-bold'>Season 17 Stats</h1>
                 <h2>Series Played: {stats17[0][1]} ({stats17[0][2]} Games)</h2>
                 <h2>Goals Per Game: {stats17[0][8]} ({stats17[0][3]})</h2>
@@ -35,7 +35,7 @@
             </div>
         {/if}
         {#if gameStats && gameStats != [] && gameStats[0]}
-            <div class='p-6 bg-gray-600  text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center' transition:fade="{{ duration:1000, ease:'circ' }}">
+            <div class='p-6 bg-gray-600  text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center' in:fade="{{ duration:1000, ease:'circ' }}">
                 <h1 class='text-2xl font-bold'>Recent Games</h1>
                 <table class="border-collapse border table-fixed border-blue-800">
                     <thead>

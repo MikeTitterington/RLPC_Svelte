@@ -36,7 +36,7 @@
  	
 </script>
 {#key data}
-<div transition:fade="{{ duration:1000, ease:'circ' }}">
+<div in:fade="{{ duration:1000, ease:'circ' }}">
     <h1 class='text-4xl font-bold text-center pt-4'>{league} Standings</h1>
     {#if league == "Major"}
         {#if division1}

@@ -23,7 +23,7 @@
 </script>
 {#if first=='true'}
     {#await preload(logo) then _}
-        <div class='team col-start-2' style="background-color: {color};"  transition:fade="{{ duration:3000, ease:'circ' }}">
+        <div class='team col-start-2' style="background-color: {color};"  in:fade="{{ duration:3000, ease:'circ' }}">
             <p class='name'>{team}</p>
             <img src={logo} alt='team'>
             <p class='place'>{standing}</p>
@@ -31,7 +31,7 @@
     {/await}
 {:else if first=='true2'}
     {#await preload(logo) then _}
-        <div class='team col-start-3' style="background-color: {color};"  transition:fade="{{ duration:3000, ease:'circ' }}">
+        <div class='team col-start-3' style="background-color: {color};"  in:fade="{{ duration:3000, ease:'circ' }}">
             <p class='name'>{team}</p>
             <img src={logo} alt='team'>
             <p class='place'>{standing}</p>
@@ -40,7 +40,7 @@
 
 {:else if first=='true3'}
     {#await preload(logo) then _}
-        <div class='team col-start-4' style="background-color: {color};"  transition:fade="{{ duration:3000, ease:'circ' }}">
+        <div class='team col-start-4' style="background-color: {color};"  in:fade="{{ duration:3000, ease:'circ' }}">
             <p class='name'>{team}</p>
             <img src={logo} alt='team'>
             <p class='place'>{standing}</p>
@@ -49,7 +49,7 @@
 
 {:else if first=='true4'}
     {#await preload(logo) then _}
-        <div class='team col-start-5' style="background-color: {color};"  transition:fade="{{ duration:3000, ease:'circ' }}">
+        <div class='team col-start-5' style="background-color: {color};"  in:fade="{{ duration:3000, ease:'circ' }}">
             <p class='name'>{team}</p>
             <img src={logo} alt='team'>
             <p class='place'>{standing}</p>
@@ -57,7 +57,7 @@
     {/await}
 {:else}
     {#await preload(logo) then _}
-        <div class='team' style="background-color: {color};"  transition:fade="{{ duration:3000, ease:'circ' }}">
+        <div class='team' style="background-color: {color};"  in:fade="{{ duration:3000, ease:'circ' }}">
             <p class='name'>{team}</p>
             <img src={logo} alt='team'>
             <p class='place'>{standing}</p>

@@ -7,7 +7,7 @@
     let league = data.league;
 </script>
 {#if powerRankings}
-    <div class='back dark:bg-gray-800'  transition:fade="{{ duration:1000, ease:'circ' }}">
+    <div class='back dark:bg-gray-800'  in:fade="{{ duration:1000, ease:'circ' }}">
         <div class='contain w-full h-full' id='image'>
             <div class='py-6 gap-2 grid md:grid-cols-4 2'>
                 <h2 class='md:col-span-4 col-span-2 py'>{league} Power Rankings</h2>

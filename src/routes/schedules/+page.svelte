@@ -43,7 +43,7 @@
 <svelte:head>
 	<title>Schedules</title>
 </svelte:head>
-<div transition:fade="{{ duration:1000, ease:'circ' }}">
+<div in:fade="{{ duration:1000, ease:'circ' }}">
     <select bind:value={searchTerm} class="my-8 w-full rounded-md text-lg p-4 border-2 border-gray-200 text-center bg-gray-100 text-gray-800">
         {#each teams as team}
             <option value="{team[5]}">{team[5]}</option>

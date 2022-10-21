@@ -1,10 +1,11 @@
 import { writable } from 'svelte/store';
-import { persist, localStorage, cookieStorage } from "@macfja/svelte-persistent-store"
+import { persist, localStorage, cookieStorage, sessionStorage } from "@macfja/svelte-persistent-store"
 export const teamsP4 = writable([]);
 export const teamsIndy = writable([]);
 
-export const sheetsP4 = writable('1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE');
-export const sheetsIndy = writable('1XZfwWVk_m0Emd8ci52QMmZ4NEMQphA9daWJ_iuAQaPY');
+export const sheetsP4 = persist(writable('1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE'),cookieStorage(), 'sheetsP4' );
+export const sheetsIndy = persist(writable('1m1zPMoUOXhVaHLDh9wElaezhvfCY3Un8VSGYtxWUUJE'),cookieStorage(), 'sheetsIndy' )
+export const season = persist(writable('18'),cookieStorage(), 'season' )
 
 export const showStatsD = persist(writable(false), localStorage(), 'showStatsD');
 export const showStandD = persist(writable(false), localStorage(), 'showStandD');

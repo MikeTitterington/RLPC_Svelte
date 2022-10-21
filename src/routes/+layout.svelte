@@ -2,9 +2,10 @@
 	import '../app.css';
   	import { onMount } from "svelte";
   	import { scale } from 'svelte/transition';
-	import {showStatsD,showStandD,showLeague,showStats,showCollected,showStandings,showStatsm,showCollectedm,showStandingsm,showBuilderm,showBuilder,showPower,showPowerm,defaultLeague,showDraftee,showFreeAgent,showDrafteem,showFreeAgentm} from '../stores/store.js'
+	import {season,sheetsP4,sheetsIndy,showStatsD,showStandD,showLeague,showStats,showCollected,showStandings,showStatsm,showCollectedm,showStandingsm,showBuilderm,showBuilder,showPower,showPowerm,defaultLeague,showDraftee,showFreeAgent,showDrafteem,showFreeAgentm} from '../stores/store.js'
 	let showMobileMenu = false;
 	let showAboutD = false;
+
 	const navItems = [
 		{label: "Home", href:'/'},
 		// {label: "Teams", href:"/teams"},
@@ -237,7 +238,6 @@
 								<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/collected/{$defaultLeague}" on:click={() => handleClick("Team Stats")}>Team Stats</a>
 								<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/compare" on:click={() => handleClick("Compare")}>Compare Teams</a>
 								<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/sheets" on:click={() => handleClick("Sheets")}>Spreadsheet</a>
-								<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/teambuilder/{$defaultLeague}" on:click={() => handleClick("Team Builder")}>Team Builder</a>
 							</div>
 							{/if}
 						</div>

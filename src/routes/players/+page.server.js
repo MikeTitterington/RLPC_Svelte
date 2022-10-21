@@ -1,6 +1,6 @@
 import { request } from 'undici';
 import { env } from '$env/dynamic/private';
-import {sheetsP4, sheetsIndy} from '../../../stores/store.js'
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
 let sheetsStoreP4;
 let sheetsStoreIndy;
 sheetsP4.subscribe((data) => {

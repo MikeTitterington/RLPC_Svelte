@@ -1,7 +1,13 @@
-
-var urlP4 = '1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE'
-
 import { request } from 'undici';
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
 
 import { env } from '$env/dynamic/private';
 async function getSheets (url, range) {
@@ -28,7 +34,7 @@ function findHeaderCol(headers, name){
 
 export async function load () {
     let rangeP4 = 'ranges=Major%20League%20Stat%20Database!B3:O3&ranges=Major%20League%20Stat%20Database!B4:O&ranges=AAA%20League%20Stat%20Database!B4:O&ranges=AA%20League%20Stat%20Database!B4:O&ranges=A%20League%20Stat%20Database!B4:O&ranges=Teams!A2:G97&ranges=Teams!A1:G1&ranges=Independent%20League%20Stat%20Database!B4:O&ranges=Maverick%20League%20Stat%20Database!B4:O'
-    let scheduleP4 = await getSheets(urlP4, rangeP4)
+    let scheduleP4 = await getSheets(sheetsStoreP4, rangeP4)
     let Headers = scheduleP4[0]
     let schedulePlayerH = findHeaderCol(Headers, "Player")
     console.log(schedulePlayerH)

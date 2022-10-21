@@ -1,4 +1,12 @@
 import { request } from 'undici';
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
 
 import { env } from '$env/dynamic/private';
 async function getSheets (url, range) {
@@ -26,7 +34,7 @@ function findHeaderCol(headers, name){
 export async function load () {
     let p4Teams = [];
     let indyTeams = [];
-    var url = "1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE";
+    var url = sheetsStoreP4;
     let range = "ranges=Teams!A1:P1&ranges=Teams!A2:P17&ranges=Teams!A66:P81"
     let getRequest = await getSheets(url, range)
     let headers = getRequest[0]

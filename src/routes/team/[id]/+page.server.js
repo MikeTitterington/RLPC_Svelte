@@ -1,4 +1,13 @@
 import { request } from 'undici';
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
 
 import { env } from '$env/dynamic/private';
 async function getSheets (url, range) {
@@ -31,7 +40,7 @@ export async function load ({params}) {
     let rangeP4 = 'ranges=Teams!A2:P113&ranges=Players!A2:AF&ranges=Teams!A1:P1&ranges=Players!A1:AF1'
     let teamNameH, teamLeagueH, playerHeaders
     try {
-        getSheetsP4r = await getSheets('1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE', rangeP4);
+        getSheetsP4r = await getSheets(sheetsStoreP4, rangeP4);
         let teamHeaders = getSheetsP4r[2]
         playerHeaders = getSheetsP4r[3]
         teamNameH = findHeaderCol(teamHeaders, "Team")
@@ -47,11 +56,11 @@ export async function load ({params}) {
         console.log('team not found');
     }
     if (team[0] && (team[0][teamLeagueH].trim() === 'Independent' || team[0][teamLeagueH].trim() === 'Maverick' || team[0][teamLeagueH].trim() === 'Renegade' || team[0][teamLeagueH].trim() === 'Paladin')) {
-        sheet = '15ZkTJPedUIRQYujrHgnLRioxPEoFKT-7j4KjSHaqYPM'
+        sheet = sheetsStoreIndy
         rangeSpecific = `ranges=${team[0][teamLeagueH]} Schedule!O5:X&ranges=${team[0][teamLeagueH]} Stats!D6:Q31&ranges=${team[0][teamLeagueH].replace(/[^\w\s]/gi, '')} Stat Database!B4:R`
     }else {
         rangeSpecific = `ranges=${team[0][teamLeagueH]} Schedule!O5:X&ranges=${team[0][teamLeagueH]} Stats!D6:Q31&ranges=${team[0][teamLeagueH].replace(/[^\w\s]/gi, '')} League Stat Database!B4:R`
-        sheet = '1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE'
+        sheet = sheetsStoreP4
     }
     let temp = getSheetsP4r[1]
     // console.log(temp['values'])

@@ -1,5 +1,14 @@
 
 import { request } from 'undici';
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
 
 import { env } from '$env/dynamic/private';
 async function getSheets (url, range) {
@@ -33,7 +42,7 @@ export async function load ({params}) {
     let teamHeaders,playerHeaders,teamNameH,aff1H,aff2H,aff3H, playerTeamH,playerMMRH,playerPlayingH
 
     try {
-        getSheetsP4r = await getSheets('1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE', rangeP4);
+        getSheetsP4r = await getSheets(sheetsStoreP4, rangeP4);
         teamHeaders = getSheetsP4r[2]
         playerHeaders = getSheetsP4r[3]
         teamNameH = findHeaderCol(teamHeaders, 'Team');

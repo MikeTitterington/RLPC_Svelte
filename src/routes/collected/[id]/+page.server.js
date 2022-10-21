@@ -1,5 +1,14 @@
 
 import { request } from 'undici';
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
 
 import { env } from '$env/dynamic/private';
 async function getSheets (url, range) {
@@ -19,9 +28,9 @@ export async function load ({params}) {
     let sheet;
     let range = `ranges=Teams!A2:G97&ranges=${League} Stats!D6:Q31`
     if (League == "Independent" || League == "Maverick" || League == "Renegade" || League == "Palidan"){
-        sheet = '15ZkTJPedUIRQYujrHgnLRioxPEoFKT-7j4KjSHaqYPM'
+        sheet = sheetsStoreIndy
     }else{
-        sheet = '1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE'
+        sheet = sheetsStoreP4
     }
     let getAllRequests = await getSheets(sheet, range);
     let team = getAllRequests[0];

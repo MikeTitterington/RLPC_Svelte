@@ -1,5 +1,14 @@
 
 import { request } from 'undici';
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
 import { env } from '$env/dynamic/private';
 /** @type {import('./$types').PageServerLoad} */
 export async function load ({ params }) {
@@ -7,7 +16,7 @@ export async function load ({ params }) {
     let player, player17, stats17, teamimage, trackers, headers, gameStats, name;
     let ranges = 'ranges=Players!A2:AF&ranges=Players!A2:V&ranges=Teams!A:F&ranges=Players!A2:V&ranges=Players!A1:V1'
     try {
-        let getAllRanges = await getSheets("1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE", ranges)
+        let getAllRanges = await getSheets(sheetsStoreP4, ranges)
         player = getAllRanges[0]
         trackers = getAllRanges[1]
         teamimage  = getAllRanges[2]
@@ -28,7 +37,7 @@ export async function load ({ params }) {
     }
     try {
         player17 = player17['values'].filter(team => team[playerIDH].toLowerCase() === playerId.toLowerCase());
-        let getAllCurrent = await getSheets("1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE", `ranges=${player17[0][playerLeagueH].replace(/[^\w\s]/gi, '')} League Stat Database!C4:RV&ranges=${player17[0][playerLeagueH].replace(/[^\w\s]/gi, '')} Game Logs!B1:K`)
+        let getAllCurrent = await getSheets(sheetsStoreP4, `ranges=${player17[0][playerLeagueH].replace(/[^\w\s]/gi, '')} League Stat Database!C4:RV&ranges=${player17[0][playerLeagueH].replace(/[^\w\s]/gi, '')} Game Logs!B1:K`)
         stats17 = getAllCurrent[0]
         stats17 = stats17['values'].filter(team => team[0].toLowerCase() === player17[0][0].toLowerCase());
         gameStats = getAllCurrent[1]

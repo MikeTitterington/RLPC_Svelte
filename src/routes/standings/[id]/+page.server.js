@@ -1,4 +1,13 @@
 import { request } from 'undici';
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
 
 import { env } from '$env/dynamic/private';
 async function getSheets (url, range) {
@@ -20,7 +29,7 @@ async function getSheets (url, range) {
         let team;
         let sheet;
         try {
-            team = await getSheets('1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE', 'ranges=Teams!A2:G');
+            team = await getSheets(sheetsStoreP4, 'ranges=Teams!A2:G');
             team = team[0]
             team['values'] = team['values'].filter(team => team[0]);
             if(team == []){
@@ -32,9 +41,9 @@ async function getSheets (url, range) {
         }
         let range = `ranges=${id} Stats!C4:H10&ranges=${id} Stats!C11:H17&ranges=${id} Stats!C19:H25&ranges=${id} Stats!C26:H32`
         if (id === 'Independent' || id === 'Maverick' || id === 'Renegade' || id === 'Palidan') {
-            sheet = '15ZkTJPedUIRQYujrHgnLRioxPEoFKT-7j4KjSHaqYPM'
+            sheet = sheetsStoreIndy
         }else {
-            sheet = '1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE'
+            sheet = sheetsStoreP4
         }
         let fullStandings = await getSheets(sheet, range)
         try {

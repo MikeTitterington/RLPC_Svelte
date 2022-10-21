@@ -1,5 +1,14 @@
 
 import { request } from 'undici';
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
 
 import { env } from '$env/dynamic/private';
 async function getSheets (url, range) {
@@ -21,7 +30,7 @@ export async function load ({params}) {
     let avg = 0;
     let count = 0;
     try {
-        stats = await getSheets("1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE", `${league} League Stat Database!C4:R`)
+        stats = await getSheets(sheetsStoreP4, `${league} League Stat Database!C4:R`)
         stats['values'].forEach(player => {
             if(player[0] != ''){
                 avg = avg + parseInt(player[2])

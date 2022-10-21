@@ -1,9 +1,13 @@
 import { request } from 'undici';
 import { env } from '$env/dynamic/private';
-import {sheetsP4} from '../../stores/store.js'
-let sheetsP4l;
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
 sheetsP4.subscribe((data) => {
-    sheetsP4l = data
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
 })
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
@@ -16,7 +20,7 @@ export async function load({ params }) {
     let playerMMRH = 3;
     let playerIDH = -1;
     let ranges = "ranges=Players!A2:AF&ranges=Players!A1:AF1"
-    let temp = await getSheets(sheetsP4l, ranges)
+    let temp = await getSheets(sheetsStoreP4, ranges)
     let headers = temp[1]
     teamsIndy = temp[0]['values'].sort(function(a, b){return b[playerMMRH]-a[playerMMRH]})
     return {
@@ -37,6 +41,7 @@ async function getSheets (url, range) {
         trailers,
         body
       } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY);
+
     let Output = await body.json()
     return await Output['valueRanges'];
 }

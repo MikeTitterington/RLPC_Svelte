@@ -1,7 +1,13 @@
 import { request } from 'undici';
-var urlP4 = '1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE'
-var urlIndy = '15ZkTJPedUIRQYujrHgnLRioxPEoFKT-7j4KjSHaqYPM'
-
+import {sheetsP4, sheetsIndy} from '../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
 import { env } from '$env/dynamic/private';
 async function getSheets (url, range) {
     const {
@@ -28,9 +34,9 @@ function findHeaderCol(headers, name){
 /** @type {import('./$types').PageServerLoad} */
 export async function load ({ params }) {
     let rangeP4 = 'ranges=Major%20Schedule!O4:X4&ranges=Major%20Schedule!O5:X&ranges=AAA%20Schedule!O5:X&ranges=AA%20Schedule!O5:X&ranges=A%20Schedule!O5:X&ranges=Teams!A2:G97&ranges=Teams!A1:G1'
-    let scheduleP4 = await getSheets(urlP4, rangeP4)
+    let scheduleP4 = await getSheets(sheetsStoreP4, rangeP4)
     let rangeIndy = 'ranges=Independent%20Schedule!O5:X&ranges=Maverick%20Schedule!O5:X'
-    let scheduleIndy = await getSheets(urlIndy, rangeIndy)
+    let scheduleIndy = await getSheets(sheetsStoreIndy, rangeIndy)
     let Headers = scheduleP4[0]
     let scheduleDateH = findHeaderCol(Headers, "Day")
     let scheduleWinnerH = findHeaderCol(Headers, "Winner")

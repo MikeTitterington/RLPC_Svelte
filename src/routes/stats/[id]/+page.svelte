@@ -21,7 +21,7 @@
         assists = data.assists
         saves = data.saves
         points = data.points
-        shooting = data.shootin
+        shooting = data.shooting
         winning = data.winning
         league = data.league
     }

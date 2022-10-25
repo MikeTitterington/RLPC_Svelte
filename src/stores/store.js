@@ -25,13 +25,3 @@ export const showDraftee = persist(writable(false), cookieStorage(), 'showDrafte
 export const showFreeAgent = persist(writable(false), cookieStorage(), 'showFreeAgent');
 export const showDrafteem = persist(writable(false), cookieStorage(), 'showDrafteem');
 export const showFreeAgentm = persist(writable(false), cookieStorage(), 'showFreeAgentm');
-
-export const league = writable('');
-export const division1 = writable('');
-export const division2 = writable('');
-export const division3 = writable('');
-export const division4 = writable('');
-export const division1Name = writable('');
-export const division2Name = writable('');
-export const division3Name = writable('');
-export const division4Name = writable('');

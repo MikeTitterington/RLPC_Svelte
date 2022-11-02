@@ -14,6 +14,42 @@
     let control = data.control
     let teamStats = data.teamStats
     let schedule = data.schedule
+    let majorCap = data.majorCap
+    let aaaCap = data.aaaCap
+    let aaCap = data.aaCap
+    let aCap = data.aCap
+    let indyCap = data.indyCap
+    let mavCap = data.mavCap
+    let majorTotal = 0
+    let aaaTotal = 0
+    let aaTotal = 0
+    let aTotal = 0
+    let indyTotal = 0
+    let mavTotal = 0
+    console.log(team)
+    $: {
+        majorCap = data.majorCap
+        aaaCap = data.aaaCap
+        aaCap = data.aaCap
+        aCap = data.aCap
+        indyCap = data.indyCap
+        mavCap = data.mavCap
+    }
+    players.forEach(player => {
+        if(player[5] == 'Major'){
+            majorTotal += parseInt(player[3])
+        }else if(player[5] == 'AAA'){
+            aaaTotal += parseInt(player[3])
+        }else if(player[5] == 'AA'){
+            aaTotal += parseInt(player[3])
+        }else if(player[5] == 'A'){
+            aTotal += parseInt(player[3])
+        }else if(player[5] == 'Independent'){
+            indyTotal += parseInt(player[3])
+        }else if(player[5] == 'Maverick'){
+            mavTotal += parseInt(player[3])
+        }
+    });
 	import Player from '../../../components/Player.svelte';
     let majorCheck = false;
     players.forEach(element => {
@@ -38,23 +74,30 @@
             <div>
                 <h2 class='font-bold text-2xl p-4 -mb-5'>
                     S19 Picks:</h2>
-                    {#if team[0][14][9]}
-                    <h2 class='text-xl p-4'> {team[0][14][3]}</h2>
+                    {#if team[0][22][9]}
+                    <h2 class='text-xl p-4'> {team[0][22][3]}</h2>
                     {:else}
-                    <h2 class='text-xl p-4'> {team[0][16][3]}</h2>
+                    <h2 class='text-xl p-4'> {team[0][24][3]}</h2>
                     {/if}
                     <h2 class='font-bold text-2xl p-4 -mb-5'>
                         S20 Picks:</h2>
-                        {#if team[0][14][9]}
-                        <h2 class='text-xl p-4'> {team[0][14][9]}</h2>
+                        {#if team[0][22][9]}
+                        <h2 class='text-xl p-4'> {team[0][22][9]}</h2>
                         {:else}
-                        <h2 class='text-xl p-4'> {team[0][16][9]}</h2>
+                        <h2 class='text-xl p-4'> {team[0][24][9]}</h2>
                         {/if}
             </div>
         </div>
         {#if team[0][5] && majorCheck}
             <a href='/team/{team[0][5]}'><div class='py-4 grid gap-4 md:grid-cols-3 grid-cols-1 text-center place-items-center bg-gray-300 text-gray-800'>
-                <h1 class='font-bold text-3xl p-4'>{team[0][5]}</h1>
+                <div>
+                    <h1 class='font-bold text-3xl p-4'>{team[0][5]}</h1>
+                    {#if team[0][6] == "Major"}
+                        <h1 class='font-bold text-xl p-4'>{majorTotal}/{parseInt(majorCap)} Left: {parseInt(majorCap)-majorTotal}</h1>
+                    {:else}
+                        <h1 class='font-bold text-xl p-4'>{indyTotal}/{parseInt(indyCap)} Left: {parseInt(indyCap)-indyTotal}</h1>
+                    {/if}
+                </div>
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][5]}
@@ -67,7 +110,14 @@
         
         {#if team[0][13]}
             <a href='/team/{team[0][13]}'><div class='py-4 grid gap-4 md:grid-cols-3 grid-cols-1 text-center place-items-center bg-gray-300 text-gray-800'>
-                <h1 class='font-bold text-3xl p-4'>{team[0][13]}</h1>
+                <div>
+                    <h1 class='font-bold text-3xl p-4'>{team[0][13]}</h1>
+                    {#if team[0][6] == "Major"}
+                        <h1 class='font-bold text-xl p-4'>{aaaTotal}/{parseInt(aaaCap)} Left: {parseInt(aaaCap)-aaaTotal}</h1>
+                    {:else}
+                        <h1 class='font-bold text-xl p-4'>{mavTotal}/{parseInt(mavCap)} Left: {parseInt(mavCap)-mavTotal}</h1>
+                    {/if}
+                </div>
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][13]}
@@ -80,7 +130,10 @@
         
         {#if team[0][14] && team[0][14][0] != team[0][9]}
             <a href='/team/{team[0][14]}'><div class='py-4 grid gap-4 md:grid-cols-3 grid-cols-1 text-center place-items-center bg-gray-300 text-gray-800'>
-                <h1 class='font-bold text-3xl p-4'>{team[0][14]}</h1>
+                <div>
+                    <h1 class='font-bold text-3xl p-4'>{team[0][14]}</h1>
+                    <h1 class='font-bold text-xl p-4'>{aaTotal}/{parseInt(aaCap)} Left: {parseInt(aaCap)-aaTotal}</h1>
+                </div>
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][14]}
@@ -92,7 +145,10 @@
         {/if}
         {#if team[0][15]}
             <a href='/team/{team[0][15]}'><div class='py-4 grid gap-4 md:grid-cols-3 grid-cols-1 text-center place-items-center bg-gray-300 text-gray-800'>
-                <h1 class='font-bold text-3xl p-4'>{team[0][15]}</h1>
+                <div>
+                    <h1 class='font-bold text-3xl p-4'>{team[0][15]}</h1>
+                    <h1 class='font-bold text-xl p-4'>{aTotal}/{parseInt(aCap)} Left: {parseInt(aCap)-aTotal}</h1>
+                </div>
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][15]}

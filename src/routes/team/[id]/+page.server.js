@@ -37,8 +37,8 @@ export async function load ({params}) {
     const id = params.id;
     let team = [[]];
     let schedule, teamStats, sheet, control, getSheetsP4r, getSheetsSpecificr, rangeSpecific, playerEnrollH;
-    let rangeP4 = 'ranges=Teams!A2:P113&ranges=Players!A2:AF&ranges=Teams!A1:P1&ranges=Players!A1:AF1'
-    let teamNameH, teamLeagueH, playerHeaders
+    let rangeP4 = 'ranges=Teams!A2:V113&ranges=Players!A2:AF&ranges=Teams!A1:P1&ranges=Players!A1:AF1&ranges=MMR%20Cutoff%20Calculations!A21:A41'
+    let teamNameH, teamLeagueH, playerHeaders, majorCap, aaaCap, aaCap, aCap, indyCap, mavCap
     try {
         getSheetsP4r = await getSheets(sheetsStoreP4, rangeP4);
         let teamHeaders = getSheetsP4r[2]
@@ -51,6 +51,13 @@ export async function load ({params}) {
         if(team === []){
             team = [[]]
         }
+        let cap = getSheetsP4r[4]['values'];
+        majorCap = cap[0]
+        aaaCap = cap[4]
+        aaCap = cap[8]
+        aCap = cap[12]
+        indyCap = cap[16]
+        mavCap = cap[20]
     } catch {
         team = [[]];
         console.log('team not found');
@@ -94,5 +101,11 @@ export async function load ({params}) {
         schedule : schedule,
         teamStats : teamStats,
         control : control,
+        majorCap : majorCap,
+        aaaCap : aaaCap,
+        aaCap : aaCap,
+        aCap : aCap,
+        indyCap :indyCap,
+        mavCap : mavCap
     }
 }

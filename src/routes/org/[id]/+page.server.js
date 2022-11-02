@@ -17,7 +17,7 @@ async function getSheets (url, range) {
         headers,
         trailers,
         body
-        } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY);
+        } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key=AIzaSyCvbAu0hMhCgXLDIiSFheZgXKn5zj6_1Ns');
     let Output = await body.json()
     return await Output['valueRanges'];
 } 
@@ -38,8 +38,8 @@ export async function load ({params}) {
     let team = [[]];
     let filtTeam = []
     let schedule, teamStats, sheet, control, getSheetsP4r
-    let rangeP4 = 'ranges=Teams!A2:P113&ranges=Players!A2:AF&ranges=Teams!A1:P1&ranges=Players!A1:AF1&ranges=P4%20Org%20Draft%20Pick%20List!M3:W&ranges=Independent%20Org%20Draft%20Pick%20List!M3:W'
-    let teamHeaders,playerHeaders,teamNameH,aff1H,aff2H,aff3H, playerTeamH,playerMMRH,playerPlayingH
+    let rangeP4 = 'ranges=Teams!A2:V113&ranges=Players!A2:AF&ranges=Teams!A1:P1&ranges=Players!A1:AF1&ranges=P4%20Org%20Draft%20Pick%20List!M3:W&ranges=Independent%20Org%20Draft%20Pick%20List!M3:W&ranges=MMR%20Cutoff%20Calculations!A21:A41'
+    let teamHeaders,playerHeaders,teamNameH,aff1H,aff2H,aff3H, playerTeamH,playerMMRH,playerPlayingH, majorCap, aaaCap, aaCap, aCap, indyCap, mavCap
 
     try {
         getSheetsP4r = await getSheets(sheetsStoreP4, rangeP4);
@@ -47,18 +47,49 @@ export async function load ({params}) {
         playerHeaders = getSheetsP4r[3]
         teamNameH = findHeaderCol(teamHeaders, 'Team');
         team = getSheetsP4r[0];
+        let cap = getSheetsP4r[getSheetsP4r.length-1]['values'];
+        majorCap = cap[0]
+        aaaCap = cap[4]
+        aaCap = cap[8]
+        aCap = cap[12]
+        indyCap = cap[16]
+        mavCap = cap[20]
+        team['values'].forEach(teamCheck => {
+            if(teamCheck[12] == id){
+                console.log(teamCheck[6])
+                if(teamCheck[6] == "AAA"){
+                    aaaCap = parseInt(aaaCap)-parseInt(teamCheck[teamCheck.length-1])
+                }
+            }else if(teamCheck[12] == id){
+                console.log(teamCheck[6])
+                if(teamCheck[6] == "AA"){
+                    aaCap = parseInt(aaCap)-parseInt(teamCheck[teamCheck.length-1])
+                }
+            }else if(teamCheck[12] == id){
+                console.log(teamCheck[6])
+                if(teamCheck[6] == "A"){
+                    aCap = parseInt(aCap)-parseInt(teamCheck[teamCheck.length-1])
+                }
+            }else if(teamCheck[12] == id){
+                console.log(teamCheck[6])
+                if(teamCheck[6] == "Independent"){
+                    indyCap = parseInt(indyCap)-parseInt(teamCheck[teamCheck.length-1])
+                }
+            }else if(teamCheck[12] == id){
+                console.log(teamCheck[6])
+                if(teamCheck[6] == "Maverick"){
+                    mavCap = parseInt(mavCap)-parseInt(teamCheck[teamCheck.length-1])
+                }
+            }
+        });
         team = team['values'].filter(team => team[teamNameH].toLowerCase() === id.toLowerCase());
         getSheetsP4r[4] = getSheetsP4r[4]['values'].filter(teama => teama[1].toLowerCase() === id.toLowerCase())
-        console.log(getSheetsP4r[4])
-        console.log(getSheetsP4r[4].length);
         getSheetsP4r[5] = getSheetsP4r[5]['values']
         if (getSheetsP4r[4].length == 0){
             filtTeam = getSheetsP4r[5].filter(teama => teama[1].toLowerCase() === id.toLowerCase())
             team[0].push(filtTeam[0])
-            console.log(team[0])
         }else {
             team[0].push(getSheetsP4r[4][0])
-            console.log(team[0])
         }
         if(team === []){
             team = [[]]
@@ -82,12 +113,17 @@ export async function load ({params}) {
     playerPlayingH = findHeaderCol(playerHeaders, "Not Playing")
     var playerEnrollH = findHeaderCol(playerHeaders, "Enrollment")
     let players = temp['values'].filter(player => (player[playerTeamH].toLowerCase() === id.toLowerCase() || orgTeams.includes(player[playerTeamH].toLowerCase())) && player[playerPlayingH] === 'FALSE').sort(function(a, b){return b[playerMMRH]-a[playerMMRH]})
-    console.log(players)
     return{
         team : team,
         players : players,
         schedule : schedule,
         teamStats : teamStats,
-        control : control
+        control : control,
+        majorCap : majorCap,
+        aaaCap : aaaCap,
+        aaCap : aaCap,
+        aCap : aCap,
+        indyCap :indyCap,
+        mavCap : mavCap
     }
 }

@@ -12,13 +12,39 @@
     let schedule;
     let teamStats;
     let control;
+    let majorCap, aaaCap, aaCap, aCap, indyCap, mavCap
 
+    let total = 0
+    let cap = 0
     $: {
         team = data.team
         players = data.players
         schedule = data.schedule
         teamStats = data.teamStats
         control = data.control
+        majorCap = data.majorCap
+        aaaCap = data.aaaCap
+        aaCap = data.aaCap
+        aCap = data.aCap
+        indyCap = data.indyCap
+        mavCap = data.mavCap
+        if (players[0][5] == 'Major'){
+            cap = majorCap
+        } else if (players[0][5] == 'AAA'){
+            cap = aaaCap
+        } else if (players[0][5] == 'AA'){
+            cap = aaCap
+        } else if (players[0][5] == 'A'){
+            cap = aCap
+        } else if (players[0][5] == 'Independent'){
+            cap = indyCap
+        } else if (players[0][5] == 'Maverick'){
+            cap = mavCap
+        }
+        cap = parseInt(cap) - parseInt(team[0][team[0].length-1])
+        players.forEach(player => {
+            total += parseInt(player[3])
+        });
     }
 	import Player from '../../../components/Player.svelte';
 </script>
@@ -45,6 +71,9 @@
                 {/if}
                 {#if team[0][15]}
                     <h2 class='font-bold text-xl p-4'><a href='/team/{team[0][15]}'>{team[0][15]}</a></h2>
+                {/if}
+                {#if team[0][15]}
+                    <h2 class='font-bold text-xl p-4'>Cap Space: {total}/{cap} Left: {cap-total}</h2>
                 {/if}
             </div>
             <div>

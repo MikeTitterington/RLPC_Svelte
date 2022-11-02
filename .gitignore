@@ -3,3 +3,7 @@ node_modules
 /build
 /.svelte-kit
 /package
+.env
+Dockerfile
+docker-compose.yml
+/nginx

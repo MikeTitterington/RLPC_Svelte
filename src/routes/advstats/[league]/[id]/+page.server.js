@@ -24,6 +24,7 @@ async function getSheets (url, range) {
 export async function load ({params}) {
     const id = params.id;
     const league = params.league;
+    console.log(league)
     let League = league
     let statTemp = id
     let stats, statsAdv, stat, statName;

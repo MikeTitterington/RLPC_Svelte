@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "start": "node build/index.js",
+    "start": "vite start",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -24,7 +24,7 @@
     "vite": "^3.1.8"
   },
   "engines": {
-    "node": "18.x"
+    "node": "^16.x"
   },
   "type": "module"
 }

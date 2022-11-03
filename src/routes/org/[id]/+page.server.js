@@ -17,7 +17,7 @@ async function getSheets (url, range) {
         headers,
         trailers,
         body
-        } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key=AIzaSyCvbAu0hMhCgXLDIiSFheZgXKn5zj6_1Ns');
+        } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY);
     let Output = await body.json()
     return await Output['valueRanges'];
 } 

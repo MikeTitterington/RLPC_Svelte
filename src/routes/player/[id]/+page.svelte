@@ -25,7 +25,7 @@
     <div class='py-4 grid gap-4 md:grid-cols-2 grid-cols-1'>
         {#if  stats17 && stats17 != [] && stats17[0] && stats17[0][1] > 0}
             <div class='p-6 bg-gray-600  text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center' in:fade="{{ duration:1000, ease:'circ' }}">
-                <h1 class='text-2xl font-bold'>Season 17 Stats</h1>
+                <h1 class='text-2xl font-bold'>Season 18 Stats</h1>
                 <h2>Series Played: {stats17[0][1]} ({stats17[0][2]} Games)</h2>
                 <h2>Goals Per Game: {stats17[0][8]} ({stats17[0][3]})</h2>
                 <h2>Assists Per Game: {stats17[0][9]} ({stats17[0][4]})</h2>

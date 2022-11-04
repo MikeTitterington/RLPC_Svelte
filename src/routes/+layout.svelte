@@ -2,10 +2,11 @@
 	import '../app.css';
   	import { onMount } from "svelte";
   	import { scale } from 'svelte/transition';
+	import Spinner from "../components/Spinner.svelte"
 	import {season,sheetsP4,sheetsIndy,showStatsD,showStandD,showLeague,showStats,showCollected,showStandings,showStatsm,showCollectedm,showStandingsm,showBuilderm,showBuilder,showPower,showPowerm,defaultLeague,showDraftee,showFreeAgent,showDrafteem,showFreeAgentm} from '../stores/store.js'
 	let showMobileMenu = false;
 	let showAboutD = false;
-
+	import { navigating } from '$app/stores'
 	const navItems = [
 		{label: "Home", href:'/'},
 		// {label: "Teams", href:"/teams"},
@@ -430,8 +431,14 @@
 				</nav>
 			{/if}
 		{/if}
-	  
-	<slot></slot>
+		{#if $navigating} <!-- LOOK HERE -->
+		<div class="m-8">
+			<Spinner />
+			Loading...
+		</div>
+      {:else}
+        <slot />
+      {/if}
 </div>
 
 

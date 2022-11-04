@@ -39,9 +39,9 @@
 <a in:fade="{{ duration:1000, ease:'circ' }}"  on:mouseenter={enter} on:click={enter} on:mouseleave={leave} class='p-6 bg-gray-400 text-gray-800 text-center rounded-md shadow-md hover:shadow-lg flex flex-col items-center' href='/player/{id.replace(",", "")}'>
     {#if hovering && goals}
         <h2 class='text-2xl font-bold'>{name.replace(/[^\w\s]/gi, '')}</h2>
-        <h2>Goals: {goals.replace(",", "")} | {goalspg.replace(",", "")}</h2>
-        <h2>Assists: {assists.replace(",", "")} | {assistspg.replace(",", "")}</h2>
-        <h2>Saves: {saves.replace(",", "")} | {savespg.replace(",", "")}</h2>
+        <h2><strong>Goals:</strong> {goals.replace(",", "")} | {goalspg.replace(",", "")}</h2>
+        <h2><strong>Assists:</strong> {assists.replace(",", "")} | {assistspg.replace(",", "")}</h2>
+        <h2><strong>Saves:</strong> {saves.replace(",", "")} | {savespg.replace(",", "")}</h2>
     {:else}
         <h2 class='text-2xl font-bold'>{name.replace(/[^\w\s]/gi, '')}</h2>
         <h2>{region.replace(/[^\w\s]/gi, '')}</h2>

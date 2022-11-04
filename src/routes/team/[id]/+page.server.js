@@ -16,7 +16,7 @@ async function getSheets (url, range) {
         headers,
         trailers,
         body
-        } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY);
+        } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key=AIzaSyCvbAu0hMhCgXLDIiSFheZgXKn5zj6_1Ns');
     let Output = await body.json()
     return await Output['valueRanges'];
 } 
@@ -37,8 +37,8 @@ export async function load ({params}) {
     const id = params.id;
     let team = [[]];
     let schedule, teamStats, sheet, control, getSheetsP4r, getSheetsSpecificr, rangeSpecific, playerEnrollH;
-    let rangeP4 = 'ranges=Teams!A2:V113&ranges=Players!A2:AF&ranges=Teams!A1:P1&ranges=Players!A1:AF1&ranges=MMR%20Cutoff%20Calculations!A21:A41'
-    let teamNameH, teamLeagueH, playerHeaders, majorCap, aaaCap, aaCap, aCap, indyCap, mavCap
+    let rangeP4 = 'ranges=Teams!A2:V113&ranges=Players!A2:AF&ranges=Teams!A1:P1&ranges=Players!A1:AF1&ranges=MMR%20Cutoff%20Calculations!A21:A41&ranges=Teams!A2:AF113'
+    let teamNameH, teamLeagueH, playerHeaders, majorCap, aaaCap, aaCap, aCap, indyCap, mavCap, teamSub
     try {
         getSheetsP4r = await getSheets(sheetsStoreP4, rangeP4);
         let teamHeaders = getSheetsP4r[2]
@@ -48,6 +48,13 @@ export async function load ({params}) {
         playerEnrollH = findHeaderCol(playerHeaders, "Enrollment")
         team = getSheetsP4r[0];
         team = team['values'].filter(team => team[teamNameH].toLowerCase() === id.toLowerCase());
+        console.log('test')
+        teamSub = getSheetsP4r[5];
+        teamSub = teamSub['values'].filter(team => team[teamNameH].toLowerCase() === id.toLowerCase());
+        console.log(teamSub)
+        team.push(teamSub[0][teamSub[0].length-1])
+        team.push(teamSub[0][teamSub[0].length-2])
+        console.log(team)
         if(team === []){
             team = [[]]
         }
@@ -58,9 +65,9 @@ export async function load ({params}) {
         aCap = cap[12]
         indyCap = cap[16]
         mavCap = cap[20]
-    } catch {
+    } catch(error){
         team = [[]];
-        console.log('team not found');
+        console.log(error);
     }
     if (team[0] && (team[0][teamLeagueH].trim() === 'Independent' || team[0][teamLeagueH].trim() === 'Maverick' || team[0][teamLeagueH].trim() === 'Renegade' || team[0][teamLeagueH].trim() === 'Paladin')) {
         sheet = sheetsStoreIndy

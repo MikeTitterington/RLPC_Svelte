@@ -352,7 +352,7 @@
 	  </nav>
 	  {#if $showStats || $showCollected || $showStandings || $showBuilder || $showPower || $showDraftee || $showFreeAgent}
 			{#if $showStats }
-				<nav class='flex justify-center w-full dark:bg-gray-600'>
+				<nav class='flex justify-center w-full dark:bg-gray-600 mx-8'>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/Major" on:click={() => $defaultLeague = 'Major'}>Major</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>

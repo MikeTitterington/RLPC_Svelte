@@ -352,7 +352,7 @@
 	  </nav>
 	  {#if $showStats || $showCollected || $showStandings || $showBuilder || $showPower || $showDraftee || $showFreeAgent}
 			{#if $showStats }
-				<nav class='flex justify-center w-full dark:bg-gray-600 md:mx-8'>
+				<nav class='flex justify-center w-full dark:bg-gray-600'>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/Major" on:click={() => $defaultLeague = 'Major'}>Major</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
@@ -363,7 +363,7 @@
 				</nav>
 			{/if}
 			{#if $showCollected }
-				<nav class='flex justify-center w-full dark:bg-gray-600 md:mx-8'>
+				<nav class='flex justify-center w-full dark:bg-gray-600'>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/Major" on:click={() => $defaultLeague = 'Major'}>Major</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
@@ -374,7 +374,7 @@
 				</nav>
 			{/if}
 			{#if $showStandings }
-				<nav class='flex justify-center w-full dark:bg-gray-600 md:mx-8'>
+				<nav class='flex justify-center w-full dark:bg-gray-600'>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/Major" on:click={() => $defaultLeague = 'Major'}>Major</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
@@ -385,7 +385,7 @@
 				</nav>
 			{/if}
 			{#if $showBuilder }
-				<nav class='flex justify-center w-full dark:bg-gray-600 md:mx-8'>
+				<nav class='flex justify-center w-full dark:bg-gray-600'>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/Major" on:click={() => $defaultLeague = 'Major'}>Major</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
@@ -396,7 +396,7 @@
 				</nav>
 			{/if}
 			{#if $showPower }
-				<nav class='flex justify-center w-full dark:bg-gray-600 md:mx-8'>
+				<nav class='flex justify-center w-full dark:bg-gray-600'>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/ranking/Major" on:click={() => $defaultLeague = 'Major'}>Major</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/ranking/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/ranking/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
@@ -407,7 +407,7 @@
 				</nav>
 			{/if}
 			{#if $showFreeAgent }
-				<nav class='flex justify-center w-full dark:bg-gray-600 md:mx-8'>
+				<nav class='flex justify-center w-full dark:bg-gray-600'>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/freeagents/Major" on:click={() => $defaultLeague = 'Major'}>Major</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/freeagents/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/freeagents/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
@@ -419,7 +419,7 @@
 				</nav>
 			{/if}
 			{#if $showDraftee }
-				<nav class='flex justify-center w-full dark:bg-gray-600 md:mx-8'>
+				<nav class='flex justify-center w-full dark:bg-gray-600'>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/draftees/Major" on:click={() => $defaultLeague = 'Major'}>Major</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/draftees/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/draftees/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>

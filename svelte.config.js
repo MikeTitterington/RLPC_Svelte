@@ -8,7 +8,7 @@ const config = {
 	extensions: ['.svelte'],
    
 	kit: {
-	  adapter: adapter({ env: { port: process|.env.PORT } }),
+	  adapter: adapter(),
 	  alias: {},
 	  appDir: '_app',
 	  csp: {

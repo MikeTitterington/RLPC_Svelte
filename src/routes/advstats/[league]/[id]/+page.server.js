@@ -55,7 +55,7 @@ export async function load ({params}) {
         } else if (id === 'shooting') {
             stat = 11
             statName = 'Shooting %'
-        } else if (id === 'wins') {
+        } else if (id === 'winning') {
             stat = 12
             statName = 'Winning %'
         }

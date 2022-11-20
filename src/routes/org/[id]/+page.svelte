@@ -93,7 +93,7 @@
                 <div>
                     <h1 class='font-bold text-3xl p-4'>{team[0][5]}</h1>
                     {#if team[0][6] == "Major"}
-                        <h1 class='font-bold text-xl p-4'>{majorTotal}/{parseInt(majorCap)} Left: {parseInt(majorCap)-majorTotal}</h1>
+                        <h1 class='font-bold text-xl p-4'>{majorTotal}</h1>
                     {:else}
                         <h1 class='font-bold text-xl p-4'>{indyTotal}/{parseInt(indyCap)} Left: {parseInt(indyCap)-indyTotal}</h1>
                     {/if}

@@ -31,6 +31,7 @@
 		// {label: "Standings", href:"/standings/Major"},
 		// {label: "Schedules", href:"/schedules"},
 		// {label: "Power Rankings", href:"/ranking/Major"},
+		{label: "Twitch", href:"https://www.twitch.tv/rlpcofficial"},
 		{label: "Join", href:"https://discord.gg/BUDpvq7egk"},
 		{label: "Donate", href:"https://streamlabs.com/rlpcofficial/tip"},
 		{label: "Submit Logs", href:"https://rlpcgamelogs.com"},
@@ -43,15 +44,15 @@
 		{label: "Players", href:"/players"},
 		{label: "Rules", href:"/rules"},
 		// {label: "Team Builder", href:"/teambuilder/Major"},
-		{label: "Player Stats", href:`/stats/${$defaultLeague}`},
-		{label: "Team Stats", href:`/collected/${$defaultLeague}`},
+		// {label: "Player Stats", href:`/stats/${$defaultLeague}`},
+		// {label: "Team Stats", href:`/collected/${$defaultLeague}`},
 		{label: "Standings", href:`/standings/${$defaultLeague}`},
 		{label: "Schedules", href:"/schedules"},
 		{label: "Power Rankings", href:`/ranking/${$defaultLeague}`},
 		{label: "Join", href:"https://discord.gg/BUDpvq7egk"},
 		{label: "Donate", href:"https://streamlabs.com/rlpcofficial/tip"},
 		{label: "Submit Logs", href:"https://rlpcgamelogs.com"},
-		{label: "Sheets", href:"/sheets"}
+		// {label: "Sheets", href:"/sheets"}
 
 	]
 	const handleMobileIconClick = () => (showMobileMenu = !showMobileMenu);
@@ -215,13 +216,13 @@
 								class="origin-top-right absolute w-48 py-2 mt-0 bg-gray-700 rounded shadow-md grid gap-4 grid-cols-1 text-center">
 								<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/teams" on:click={() => handleClick("Teams")}>Teams</a>
 								<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/players" on:click={() => handleClick("Players")}>Players</a>
-								<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/freeagents/{$defaultLeague}" on:click={() => handleClick("FreeSwitch")}>Free Agents</a>
-								<a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/draftees/{$defaultLeague}" on:click={() => handleClick("DrafteeSwitch")}>Waitlist/Draftee</a>
+								<!-- <a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/freeagents/{$defaultLeague}" on:click={() => handleClick("FreeSwitch")}>Free Agents</a> -->
+								<!-- <a class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/draftees/{$defaultLeague}" on:click={() => handleClick("DrafteeSwitch")}>Waitlist/Draftee</a> -->
 							</div>
 							{/if}
 						</div>
 					</div>
-					<div class='m-auto'>
+					<!-- <div class='m-auto'>
 						<div on:mouseenter={() => ($showStatsD = true)}  on:mouseleave={() => ($showStatsD = false)} class='hover:bg-gray-700 '>
 							<div class='menu focus:outline-none focus:shadow-solid text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg'>
 								<button class='grid grid-cols-2 mx-0 flex items-center justify-center -mr-6' on:click={() => ($showStatsD = !$showStatsD)}>Stats
@@ -242,7 +243,7 @@
 							</div>
 							{/if}
 						</div>
-					</div>
+					</div> -->
 					<div class='m-auto'>
 						<div on:mouseenter={() => (showAboutD = true)}  on:mouseleave={() => (showAboutD = false)} class='hover:bg-gray-700 '>
 							<div class='menu focus:outline-none focus:shadow-solid text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg'>

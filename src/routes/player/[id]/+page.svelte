@@ -23,12 +23,6 @@
     {#if player}
     <h1 class='text-4xl font-bold text-center'>{name.replace(/[^\w\s]/gi, '')}</h1>
     <div class='py-4 grid gap-4 md:grid-cols-2 grid-cols-1'>
-        {#if player[0][10].includes("MAX")}
-            <h2>Max Contract</h2>
-        {/if}
-        {#if player[0][10].length > 0}
-            <h2>Season {(parseInt(player[0][10])-parseInt(player[0][11])+1)} of {player[0][10]}</h2>
-        {/if}
         {#if  stats17 && stats17 != [] && stats17[0] && stats17[0][1] > 0}
             <div class='p-6 bg-gray-600  text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center' in:fade="{{ duration:1000, ease:'circ' }}">
                 <h1 class='text-2xl font-bold'>Season 18 Stats</h1>
@@ -70,6 +64,12 @@
         <div class='p-6 bg-gray-600  text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center'>
             <!-- <img class='h-1/6 w-1/6 object-contain' src='{logo}' alt='{name.replace(/[^\w\s]/gi, '')} logo'/> -->
             <h1 class='text-2xl font-bold'>Player Info</h1>
+            {#if player[0][10].includes("MAX")}
+                <h2>Max Contract</h2>
+            {/if}
+            {#if player[0][10].length > 0}
+                <h2>Season {(parseInt(player[0][10])-parseInt(player[0][11])+1)} of {player[0][10]}</h2>
+            {/if}
             <h2>Region: {region.replace(/[^\w\s]/gi, '')}</h2>
             <h2>Platform: {platform.replace(/[^\w\s]/gi, '')}</h2>
             <h2>League: {player[0][5]}</h2>

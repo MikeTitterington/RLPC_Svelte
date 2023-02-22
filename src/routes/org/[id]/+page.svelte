@@ -90,14 +90,14 @@
         </div>
         {#if team[0][5] && majorCheck}
             <a href='/team/{team[0][5]}'><div class='py-4 grid gap-4 md:grid-cols-3 grid-cols-1 text-center place-items-center bg-gray-300 text-gray-800'>
-                <!-- <div>
+                <div>
                     <h1 class='font-bold text-3xl p-4'>{team[0][5]}</h1>
-                    {#if team[0][6] == "Major"}
+                    <!-- {#if team[0][6] == "Major"}
                         <h1 class='font-bold text-xl p-4'>{majorTotal}</h1>
                     {:else}
                         <h1 class='font-bold text-xl p-4'>{indyTotal}/{parseInt(indyCap)} Left: {parseInt(indyCap)-indyTotal}</h1>
-                    {/if}
-                </div> -->
+                    {/if} -->
+                </div>
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][5]}
@@ -110,14 +110,14 @@
         
         {#if team[0][13]}
             <a href='/team/{team[0][13]}'><div class='py-4 grid gap-4 md:grid-cols-3 grid-cols-1 text-center place-items-center bg-gray-300 text-gray-800'>
-                <!-- <div>
+                <div>
                     <h1 class='font-bold text-3xl p-4'>{team[0][13]}</h1>
-                    {#if team[0][6] == "Major"}
+                    <!-- {#if team[0][6] == "Major"}
                         <h1 class='font-bold text-xl p-4'>{aaaTotal}/{parseInt(aaaCap)} Left: {parseInt(aaaCap)-aaaTotal}</h1>
                     {:else}
                         <h1 class='font-bold text-xl p-4'>{mavTotal}/{parseInt(mavCap)} Left: {parseInt(mavCap)-mavTotal}</h1>
-                    {/if}
-                </div> -->
+                    {/if} -->
+                </div>
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][13]}
@@ -130,10 +130,10 @@
         
         {#if team[0][14] && team[0][14][0] != team[0][9]}
             <a href='/team/{team[0][14]}'><div class='py-4 grid gap-4 md:grid-cols-3 grid-cols-1 text-center place-items-center bg-gray-300 text-gray-800'>
-                <!-- <div>
+                <div>
                     <h1 class='font-bold text-3xl p-4'>{team[0][14]}</h1>
-                    <h1 class='font-bold text-xl p-4'>{aaTotal}/{parseInt(aaCap)} Left: {parseInt(aaCap)-aaTotal}</h1>
-                </div> -->
+                    <!-- <h1 class='font-bold text-xl p-4'>{aaTotal}/{parseInt(aaCap)} Left: {parseInt(aaCap)-aaTotal}</h1> -->
+                </div>
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][14]}
@@ -145,10 +145,10 @@
         {/if}
         {#if team[0][15]}
             <a href='/team/{team[0][15]}'><div class='py-4 grid gap-4 md:grid-cols-3 grid-cols-1 text-center place-items-center bg-gray-300 text-gray-800'>
-                <!-- <div>
+                <div>
                     <h1 class='font-bold text-3xl p-4'>{team[0][15]}</h1>
-                    <h1 class='font-bold text-xl p-4'>{aTotal}/{parseInt(aCap)} Left: {parseInt(aCap)-aTotal}</h1>
-                </div> -->
+                    <!-- <h1 class='font-bold text-xl p-4'>{aTotal}/{parseInt(aCap)} Left: {parseInt(aCap)-aTotal}</h1> -->
+                </div>
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][15]}

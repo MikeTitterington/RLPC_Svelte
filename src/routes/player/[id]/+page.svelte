@@ -65,10 +65,13 @@
             <!-- <img class='h-1/6 w-1/6 object-contain' src='{logo}' alt='{name.replace(/[^\w\s]/gi, '')} logo'/> -->
             <h1 class='text-2xl font-bold'>Player Info</h1>
             {#if player[0][10].includes("MAX")}
-                <h2>Max Contract {player[0][4]}</h2>
+                <h2>Contract: Max Contract {player[0][4]}</h2>
             {/if}
             {#if player[0][10].length > 0 && !player[0][10].includes("MAX")}
-                <h2>Season {(parseInt(player[0][10])-parseInt(player[0][11])+1)} of {player[0][10]} {player[0][4]}</h2>
+                <h2>Contract: Season {(parseInt(player[0][10])-parseInt(player[0][11])+1)} of {player[0][10]} {player[0][4]}</h2>
+            {/if}
+            {#if player[0][10].length == 0 && !player[0][10].includes("MAX")}
+                <h2>Contract: None</h2>
             {/if}
             <h2>Region: {region.replace(/[^\w\s]/gi, '')}</h2>
             <h2>Platform: {platform.replace(/[^\w\s]/gi, '')}</h2>

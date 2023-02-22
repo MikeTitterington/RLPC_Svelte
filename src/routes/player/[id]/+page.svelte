@@ -23,6 +23,12 @@
     {#if player}
     <h1 class='text-4xl font-bold text-center'>{name.replace(/[^\w\s]/gi, '')}</h1>
     <div class='py-4 grid gap-4 md:grid-cols-2 grid-cols-1'>
+        {#if player[10].includes("MAX")}
+            <h2>Max Contract</h2>
+        {/if}
+        {#if player[10].length > 0}
+            <h2>Season {(parseInt(player[10])-parseInt(player[11])+1)} of {player[10]}</h2>
+        {/if}
         {#if  stats17 && stats17 != [] && stats17[0] && stats17[0][1] > 0}
             <div class='p-6 bg-gray-600  text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center' in:fade="{{ duration:1000, ease:'circ' }}">
                 <h1 class='text-2xl font-bold'>Season 18 Stats</h1>

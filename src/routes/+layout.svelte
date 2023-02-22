@@ -438,7 +438,9 @@
 			Loading...
 		</div>
       {:else}
+	  <div class="m-8">
         <slot />
+	  </div>
       {/if}
 </div>
 

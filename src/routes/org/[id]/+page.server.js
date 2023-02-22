@@ -112,7 +112,7 @@ export async function load ({params}) {
     playerMMRH = findHeaderCol(playerHeaders, "Tracker MMR")
     playerPlayingH = findHeaderCol(playerHeaders, "Not Playing")
     var playerEnrollH = findHeaderCol(playerHeaders, "Enrollment")
-    let players = temp['values'].filter(player => (player[playerTeamH].toLowerCase() === id.toLowerCase() || orgTeams.includes(player[playerTeamH].toLowerCase())) && player[playerPlayingH] === 'FALSE').sort(function(a, b){return b[playerMMRH]-a[playerMMRH]})
+    let players = temp['values'].filter(player => (player[playerTeamH].toLowerCase() === id.toLowerCase() || orgTeams.includes(player[playerTeamH].toLowerCase())) && player[playerPlayingH] === 'FALSE' && player[playerPlayingH-9] === 'Y').sort(function(a, b){return b[playerMMRH]-a[playerMMRH]})
     return{
         team : team,
         players : players,

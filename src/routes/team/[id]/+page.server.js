@@ -82,7 +82,7 @@ export async function load ({params}) {
     playerTeamH = findHeaderCol(playerHeaders, "Team")
     playerPlayingH = findHeaderCol(playerHeaders, "Not Playing")
     playerMMRH = findHeaderCol(playerHeaders, "Tracker MMR")
-    let players = temp['values'].filter(player => player[playerTeamH].toLowerCase() === id.toLowerCase() && player[playerPlayingH] === 'FALSE').sort(function(a, b){return b[playerMMRH]-a[playerMMRH]})
+    let players = temp['values'].filter(player => player[playerTeamH].toLowerCase() === id.toLowerCase() && player[playerPlayingH] === 'FALSE' && player[playerEnrollH] === 'Y').sort(function(a, b){return b[playerMMRH]-a[playerMMRH]})
     // console.log(temp)
     if(team[0]){
         getSheetsSpecificr = await getSheets(sheet, rangeSpecific);

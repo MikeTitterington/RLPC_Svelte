@@ -15,18 +15,17 @@
         division3,
         division4,
         league
-    $: {
-        division1 = data.division1
-        division1Name = data.division1Name
-        division2Name = data.division2Name
-        division3Name = data.division3Name
-        division4Name = data.division4Name
-        division2 = data.division2
-        division3 = data.division3
-        division4 = data.division4
-        league = data.league
-    }
+    $: division1 = data.division1
+    $: division1Name = data.division1Name
+    $: division2Name = data.division2Name
+    $: division3Name = data.division3Name
+    $: division4Name = data.division4Name
+    $: division2 = data.division2
+    $: division3 = data.division3
+    $: division4 = data.division4
+    $: league = data.league
     function preload(src) {
+        return
         return new Promise(function(resolve) {
             let img = new Image()
             img.onload = resolve
@@ -97,7 +96,7 @@
                                         
                                             {#await preload(team[0]) then _}
                                                 <tr class=" bg-gray-100 border-b">
-                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='{team[0]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src={team[0]} class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
                                                     <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
                                                     <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
                                                     <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>

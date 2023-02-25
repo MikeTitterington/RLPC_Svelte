@@ -116,45 +116,45 @@
                     </thead>
                     <tbody>
                         <tr class='border-b bg-gray-300'>
-                            <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[1]}</td>
-                            <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[2]}</td>
+                            <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[11]}</td>
+                            <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[12]}</td>
                             {#if teamStats[5] != '#VALUE!'}
-                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[5]}</td>
+                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[15]}</td>
                             {:else}
                                 <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>0 | 0.00</td>
                             {/if}
                             {#if teamStats[6] != '#VALUE!'}
-                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[6]}</td>
+                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[16]}</td>
                             {:else}
                                 <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>0 | 0.00</td>
                             {/if}
                             {#if teamStats[7] != '#VALUE!'}
-                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[7]}</td>
+                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[17]}</td>
                             {:else}
                                 <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>0 | 0.00</td>
                             {/if}
                             {#if teamStats[8] != '#VALUE!'}
-                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[8]}</td>
+                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[18]}</td>
                             {:else}
                                 <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>0 | 0.00</td>
                             {/if}
                             {#if teamStats[9] != '#VALUE!'}
-                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[9]}</td>
+                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{Math.round(parseFloat(teamStats[19]) * 100)}%</td>
                             {:else}
                                 <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>0%</td>
                             {/if}
                             {#if teamStats[10] != '#VALUE!'}
-                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[10]}</td>
+                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{Math.round(parseFloat(teamStats[20]) * 100)}%</td>
                             {:else}
                                 <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>100%</td>
                             {/if}
                             {#if teamStats[11] != '#VALUE!'}
-                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[11]}</td>
+                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[21]}</td>
                             {:else}
                                 <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>0 | 0.00</td>
                             {/if}
                             {#if teamStats[12] != '#VALUE!'}
-                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[12]}</td>
+                                <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>{teamStats[22]}</td>
                             {:else}
                                 <td class='border border-gray-400 text-center py-4 text-lg text-gray-900 px-6 whitespace-nowrap'>0 | 0.00</td>
                             {/if}

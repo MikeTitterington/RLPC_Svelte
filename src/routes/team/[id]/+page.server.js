@@ -73,7 +73,7 @@ export async function load ({params}) {
         sheet = sheetsStoreIndy
         rangeSpecific = `ranges=${team[0][teamLeagueH]} Schedule!O5:X&ranges=${team[0][teamLeagueH]} Stats!D6:Q31&ranges=${team[0][teamLeagueH].replace(/[^\w\s]/gi, '')} Stat Database!B4:R`
     }else {
-        rangeSpecific = `ranges=${team[0][teamLeagueH]} Schedule!O5:X&ranges=${team[0][teamLeagueH]} Stats!D6:Q31&ranges=${team[0][teamLeagueH].replace(/[^\w\s]/gi, '')} League Stat Database!B4:R`
+        rangeSpecific = `ranges=${team[0][teamLeagueH]} Schedule!O5:X&ranges=Standings!W17:BB73&ranges=${team[0][teamLeagueH].replace(/[^\w\s]/gi, '')} League Stat Database!B4:R`
         sheet = sheetsStoreP4
     }
     let temp = getSheetsP4r[1]

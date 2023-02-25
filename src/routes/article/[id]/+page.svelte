@@ -2,6 +2,7 @@
 	<title>Team Stats</title>
 </svelte:head>
 <script>
+    import { fade } from 'svelte/transition'
     import SvelteMarkdown from 'svelte-markdown'
     /** @type {import('./$types').PageData} */
     export let data

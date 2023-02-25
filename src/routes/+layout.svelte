@@ -179,6 +179,7 @@
 					{#each navItems as item}
 						<a href="{item.href}" class="m-auto text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg" aria-current="page" on:click={() => handleClick(item.label)}>{item.label}</a>
 					{/each}
+					<a href="/news" class="m-auto text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg" aria-current="page">News</a>
 					<div class='m-auto'>
 						<div on:mouseenter={() => ($showStandD = true)}  on:mouseleave={() => ($showStandD = false)} class='hover:bg-gray-700 '>
 							<div class='menu focus:outline-none focus:shadow-solid text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg'>

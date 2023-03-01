@@ -55,7 +55,7 @@
 				</div>
 				
 			{:else}
-				<div class='grid gap-4 grid-cols-2 border border-blue-800 float-left dark:bg-gray-300 dark:text-gray-800 w-96'>
+				<div class='grid gap-4 grid-cols-2 border border-blue-800 float-left dark:bg-gray-300 dark:text-gray-800 w-96 mx-1'>
 					<div class='grid grid-cols-1 px-2 flex flex-col h-100 m-auto text-center'>
 						<div class='flex flex-col'>{game[3]}</div>
 						<div>{game[5]}</div>
@@ -77,7 +77,7 @@
 <style>
 	.ticker {
 		width: 400%;
-        animation: slide 60s linear infinite;
+        animation: slide 120s linear infinite;
 	}
 	img {
 		text-align: center;

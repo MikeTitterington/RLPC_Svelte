@@ -40,6 +40,7 @@
 	]
 	const navItemsm = [
 		{label: "Home", href:'/'},
+		{label: "News", href:"/news"},
 		{label: "Teams", href:"/teams"},
 		{label: "Players", href:"/players"},
 		{label: "Rules", href:"/rules"},
@@ -142,13 +143,13 @@
 		};
 	});
 </script>
-<div class='py-8 max-w-screen max-h-full min-h-screen mx-auto contain dark:bg-gray-800 dark:text-gray-300'>
-	<nav class="bg-gray-600 mx-8">
+<div class='max-w-screen max-h-full min-h-screen mx-auto contain dark:bg-gray-800 dark:text-gray-300'>
+	<nav class="bg-gray-600 z-10">
 		<div class="lg:flex justify-center max-w-8xl mx-auto px-2 sm:px-6 lg:px-8">
 		  <div class="relative flex items-center justify-between h-16">
-			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden w-full">
 			  <!-- Mobile menu button-->
-			  <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" on:click={handleMobileIconClick}>
+			  <button type="button" class="inline-flex items-center justify-center rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" on:click={handleMobileIconClick}>
 				<span class="sr-only">Open main menu</span>
 				<!--
 				  Icon when menu is closed.
@@ -171,6 +172,7 @@
 				  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 				</svg>
 			  </button>
+			  <img class=' p-0 h-20 text-center m-0 w-full object-contain' src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png' alt='logo' />
 			</div>
 			<div class="flex-1 flex items-center justify-start sm:items-stretch sm:justify-start">
 			  <div class="hidden sm:block sm:ml-6">
@@ -434,12 +436,12 @@
 			{/if}
 		{/if}
 		{#if $navigating} <!-- LOOK HERE -->
-		<div class="m-8">
+		<div>
 			<Spinner />
 			Loading...
 		</div>
       {:else}
-	  <div class="m-8">
+	  <div class='mx-4 overflow-hidden'>
         <slot />
 	  </div>
       {/if}
@@ -450,6 +452,10 @@
 	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
+	nav {
+		z-index: 1;
+		position: relative;
+	}
 </style>
 
 

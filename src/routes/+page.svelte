@@ -1,70 +1,95 @@
 <svelte:head>
 	<title>Home</title>
 </svelte:head>
-
-<div class='contain text-5xl'>
-	<img src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png' alt='logo' />
-	<!-- <article>
-		<hr>
-		<p>RLPC is a 3k+ member, NA-based, league organization created in 2017. RLPC combines a competitive Rocket League scene and a traditional sports background, with a setup that includes affiliated leagues, call-ups/send-downs, MMRs caps, contracts, a draft system for new players, free agency, player trading, and more. RLPC’s goal is to offer a league where members can improve while playing and hopefully move on to Professional and Collegiate Rocket League levels.</p>
-		<hr>
-		<h1 class='text-center'><strong>League Structure</strong></h1>
-		<p class="text-center"><strong>Major League:</strong> 1850+ | Draft League | No Team MMR Cap
-<strong>AAA:</strong> 1682 MMR - 1849 MMR
-<strong>AA:</strong> 1581 MMR - 1681 MMR
-<strong>A:</strong> 1496 MMR - 1580 MMR
-<strong>Independent:</strong> 1413 MMR - 1495 MMR
-<strong>Maverick:</strong> 1289 MMR - 1412 MMR
-<strong>Renegade:</strong> 1000 MMR - 1288 MMR</p>
-<hr>
-		<h1 class='text-center'><strong>Key Information</strong></h1>
-		<p>
-- Organizations have GMs and AGMs that are professionally branded.
-- RLPC provides a professional-level broadcasts with casters
-- Leagues below Major have overall team MMR caps and utilize a draft system for new joining players.
-- Teams are not pre-made. Players join teams and teams conduct tryouts in the off-season as well as participate in a league-ran draft if they are new.
-- Regular season lasts 9 weeks with 2 matches a week (1x Tuesday and 1x Thursday). Playoffs are a double-elimination tournament.</p>
-<hr>
-	</article> -->
-</div>
-
-<!-- <table class="min-w-full text-center">
-	<caption class='text-xl  font-bold'>Recent Trades</caption>
-	<thead class="border-b bg-gray-600">
-		<tr>
-			<th scope="col" class="text-xl font-bold text-white px-6 py-4">Date</th>
-			<th scope="col" class="text-xl font-bold text-white px-6 py-4">Team 1</th>
-			<th scope="col" class="text-xl font-bold text-white px-6 py-4">Team 1 Recieves</th>
-			<th scope="col" class="text-xl font-bold text-white px-6 py-4">Team 2</th>
-			<th scope="col" class="text-xl font-bold text-white px-6 py-4">Team 2 Recieves</th>
-		</tr>
-	</thead>
-	<tbody>
-		{#each trades as trade}
+<script>
+	import Article from '../components/Article.svelte';
+	import Ticker from 'svelte-ticker';
+    import { fade } from 'svelte/transition'
+ 	 /** @type {import('./$types').PageData} */
+  	export let data;
+    let fullSchedule = data.fullSchedule
+    let scheduleDateH = data.scheduleDateH
+    let scheduleWinnerH = data.scheduleWinnerH
+    let scheduleScoreH = data.scheduleScoreH
+    let teams = data.teams
+	let articles = data.articles
+    let schedule = [];
+	let searchTerm = "";
+	let filteredTeams = [];
+	console.log(fullSchedule)
+    async function filterTeams(value) {
+		if(value) {
+            filteredTeams = fullSchedule.filter(team => team[5].toLowerCase() == value.toLowerCase() || team[3].toLowerCase() == value.toLowerCase());
+            let i = 1
+            return fullSchedule.filter(team => team[5].toLowerCase() == value.toLowerCase() || team[3].toLowerCase() == value.toLowerCase()).forEach(element => {
+                if (element.length == 6){
+                    element.push("No Results")
+                    element.push("0 - 0")
+                    element.push("N")
+                    element.push("N")
+                }
+                if(i%2==0){
+                    element.push("bg-gray-100")
+                }else{
+                    element.push("bg-gray-300")
+                }
+                i = i+1
+            });
+		}else {
+            filteredTeams = [... schedule];
+			return [... schedule];
+		}
 		
-			{#await preload(trade[org1TH]) then _}
-				<tr class=" bg-gray-100 border-b">
-					<td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{trade[dateTH]}</td>
-					<td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/org/{trade[5]}'><img class='contain' src='{trade[org1TH]}'/></a></td>
-					<td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{trade[rec1TH]}</td>
-					<td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/org/{trade[6]}'><img class='contain' src='{trade[org2TH]}'/></a></td>
-					<td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{trade[rec2TH]}</td>
-				</tr>
-			{/await}
+	}
+</script>
+<div class='text-5xl overflow-x-hidden'>
+	<div class='hidden md:flex h-20 text-xl overflow-hidden ticker z-0'>
+		{#each fullSchedule as game}
+			{#if game[scheduleScoreH]}
+				<div class='grid gap-4 grid-cols-2 border border-blue-800 float-left dark:bg-gray-300 dark:text-gray-800 w-96'>
+					<div class='grid grid-cols-1 px-2 flex flex-col h-100 m-auto text-center'>
+						<div class='flex flex-col'>{game[3]}</div>
+						<div>{game[5]}</div>
+					</div>
+					<div class='flex flex-col h-100 m-auto'>{game[scheduleScoreH]}</div>
+				</div>
+				
+			{:else}
+				<div class='grid gap-4 grid-cols-2 border border-blue-800 float-left dark:bg-gray-300 dark:text-gray-800 w-96'>
+					<div class='grid grid-cols-1 px-2 flex flex-col h-100 m-auto text-center'>
+						<div class='flex flex-col'>{game[3]}</div>
+						<div>{game[5]}</div>
+					</div>
+					<div class='flex flex-col h-100 m-auto'>0-0</div>
+				</div>
+			{/if}
 		{/each}
-	</tbody>
-</table> -->
+	</div>
+	<img class='h-96' src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png' alt='logo' />
+	<h2 class='text-center'>Recent News Articles</h2>
+	<div class='py-4 grid gap-4 md:grid-cols-6 grid-cols-2 m-4'>
+		{#each articles as article}
+			<Article name={article[1]} id={article[0]} date={article[2]}/>
+		{/each}
+	</div>
+</div>
 <style>
-	.contain {
-		height: 100%;
-		width: 70%;
-		margin:auto
+	.ticker {
+		width: 400%;
+        animation: slide 60s linear infinite;
 	}
 	img {
 		text-align: center;
 		margin: auto;
 	}
-	article {
-  		white-space: pre-wrap;
-	}
+	@keyframes slide {
+        0% {
+            transform: translate3d(0px, 0, 0);
+        }
+
+        100% {
+            transform: translate3d(-6000px, 0, 0);
+            /* The image width */
+        }
+    }
 </style>

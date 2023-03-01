@@ -12,7 +12,7 @@
     }
 </script>
 
-<div class="flex flex-col" in:fade="{{ duration:1000, ease:'circ' }}">
+<div class="flex flex-col text-xl my-8" in:fade="{{ duration:1000, ease:'circ' }}">
     <SvelteMarkdown source={article} />
 </div>
 

@@ -55,16 +55,13 @@
                                 </thead>
                                 <tbody>
                                     {#each division1 as team}
-                                    
-                                        {#await preload(team[0]) then _}
-                                            <tr class=" bg-gray-100 border-b">
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='{team[0]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
-                                                <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
-                                            </tr>
-                                        {/await}
+                                        <tr class=" bg-gray-100 border-b">
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                            <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
+                                        </tr>
                                     {/each}
                                 </tbody>
                             </table>
@@ -93,16 +90,13 @@
                                     </thead>
                                     <tbody>
                                         {#each division1 as team}
-                                        
-                                            {#await preload(team[0]) then _}
-                                                <tr class=" bg-gray-100 border-b">
-                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src={team[0]} class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
-                                                    <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
-                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
-                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
-                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
-                                                </tr>
-                                            {/await}
+                                            <tr class=" bg-gray-100 border-b">
+                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                                <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
+                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
+                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
+                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
+                                            </tr>
                                         {/each}
                                     </tbody>
                                 </table>
@@ -129,16 +123,13 @@
                                 </thead>
                                 <tbody>
                                     {#each division2 as team}
-                                    
-                                        {#await preload(team[0]) then _}
-                                            <tr class=" bg-gray-100 border-b">
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='{team[0]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
-                                                <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
-                                            </tr>
-                                        {/await}
+                                        <tr class=" bg-gray-100 border-b">
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                            <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
+                                        </tr>
                                     {/each}
                                 </tbody>
                             </table>
@@ -165,16 +156,13 @@
                                 </thead>
                                 <tbody>
                                     {#each division3 as team}
-                                    
-                                        {#await preload(team[0]) then _}
-                                            <tr class=" bg-gray-100 border-b">
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='{team[0]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
-                                                <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
-                                            </tr>
-                                        {/await}
+                                        <tr class=" bg-gray-100 border-b">
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                            <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
+                                        </tr>
                                     {/each}
                                 </tbody>
                             </table>
@@ -201,16 +189,13 @@
                                 </thead>
                                 <tbody>
                                     {#each division4 as team}
-                                    
-                                        {#await preload(team[0]) then _}
-                                            <tr class=" bg-gray-100 border-b">
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='{team[0]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
-                                                <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
-                                            </tr>
-                                        {/await}
+                                        <tr class=" bg-gray-100 border-b">
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                            <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[4]}</td>
+                                        </tr>
                                     {/each}
                                 </tbody>
                             </table>

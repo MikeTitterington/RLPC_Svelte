@@ -101,7 +101,7 @@ async function getSheets (url, range) {
         "1": "#fcba04",
         "2": "#18020c",
         "3": "#000001",
-        "logo": "https://cdn.discordapp.com/attachments/696962499177742476/699287932447621190/Storm_Logo_190x160.png"
+        "logo": "https://cdn.discordapp.com/attachments/696962499177742476/699287932447621190/Storm_Logo.png"
         },
         "whitecaps": {
         "1": "#c9f9ff",

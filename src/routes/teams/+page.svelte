@@ -36,7 +36,7 @@
             img.src = src
         })
     }
-
+	
 	$: filteredTeams = filterTeams(searchTerm);
 </script>
 
@@ -48,13 +48,11 @@
 
 	<div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-2'>
 		{#each filteredTeams as team}
-			{#await preload(team[logoH]) then _}
-				{#if team[aff2H]}
-					<Team name={team[teamNameH]}, logo={team[logoH]}, aaa={team[aff1H]}, aa={team[aff2H]}, a={team[aff3H]} />
-				{:else}
-					<Team name={team[teamNameH]}, logo={team[logoH]}, aaa={team[aff1H]} />
-				{/if}
-			{/await}
+			{#if team[aff2H]}
+				<Team name={team[teamNameH]}, logo='logos/{team[logoH].split("\/")[team[logoH].split("\/").length-1]}', aaa={team[aff1H]}, aa={team[aff2H]}, a={team[aff3H]} />
+			{:else}
+				<Team name={team[teamNameH]}, logo='logos/{team[logoH].split("\/")[team[logoH].split("\/").length-1]}', aaa={team[aff1H]} />
+			{/if}
 		{/each}
 	</div>
 </div>

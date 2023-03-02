@@ -30,7 +30,7 @@
 	<input class='my-8 w-full rounded-md text-lg p-4 border-2 border-gray-200' type='text' bind:value={searchTerm} placeholder='Search Players' >
 
 	<div class='py-4 grid gap-4 md:grid-cols-6 grid-cols-2'>
-		{#each filteredPlayers as player}
+		{#each filteredPlayers.slice(0, 50) as player}
 			<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
 		{/each}
 	</div>

@@ -75,6 +75,7 @@ async function getStandings(league, team, fullStandings, start){
             division3 = await getStandings(league,team,fullStandings[0]['values'], 8)
             division3Name = division3[0][5]
             division4 = await getStandings(league,team,fullStandings[0]['values'], 12)
+            console.log(division3)
             division4Name = division4[0][5]
             let i = 0
             while(division1 === undefined && i < 10){

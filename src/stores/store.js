@@ -3,8 +3,8 @@ import { persist, localStorage, cookieStorage, sessionStorage } from "@macfja/sv
 export const teamsP4 = writable([]);
 export const teamsIndy = writable([]);
 
-export const sheetsP4 = persist(writable('1Fu3jq_z7bGJ-2SaEtwNUxW3BUBnSCw9tFreEQO51DXU'),cookieStorage(), 'sheetsP4' );
-export const sheetsIndy = persist(writable('1Fu3jq_z7bGJ-2SaEtwNUxW3BUBnSCw9tFreEQO51DXU'),cookieStorage(), 'sheetsIndy' )
+export const sheetsP4 = writable('1Fu3jq_z7bGJ-2SaEtwNUxW3BUBnSCw9tFreEQO51DXU');
+export const sheetsIndy = writable('1Fu3jq_z7bGJ-2SaEtwNUxW3BUBnSCw9tFreEQO51DXU');
 export const season = persist(writable('18'),cookieStorage(), 'season' )
 
 export const showStatsD = persist(writable(false), localStorage(), 'showStatsD');

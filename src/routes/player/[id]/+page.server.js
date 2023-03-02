@@ -14,7 +14,7 @@ import { env } from '$env/dynamic/private';
 export async function load ({ params }) {
     const id = params.id.replace(/[^\w\s]/gi, '');
     let player, player17, stats17, teamimage, trackers, headers, gameStats, name;
-    let ranges = 'ranges=Old%20Players!A2:AF&ranges=Old%20Players!A2:V&ranges=Teams!A:F&ranges=Old%20Players!A2:V&ranges=Old%20Players!A1:V1'
+    let ranges = 'ranges=Players!A2:AF&ranges=Players!A2:V&ranges=Teams!A:F&ranges=Players!A2:V&ranges=Players!A1:V1'
     try {
         let getAllRanges = await getSheets(sheetsStoreP4, ranges)
         player = getAllRanges[0]

@@ -16,7 +16,6 @@
     let schedule = [];
 	let searchTerm = "";
 	let filteredTeams = [];
-	console.log(fullSchedule)
     async function filterTeams(value) {
 		if(value) {
             filteredTeams = fullSchedule.filter(team => team[5].toLowerCase() == value.toLowerCase() || team[3].toLowerCase() == value.toLowerCase());
@@ -42,8 +41,8 @@
 		
 	}
 </script>
-<div class='text-5xl overflow-x-hidden'>
-	<div class='hidden md:flex h-20 text-xl overflow-hidden ticker z-0'>
+<div class='text-xl overflow-x-hidden'>
+	<div class='hidden md:flex h-20 text-lg overflow-hidden ticker z-0'>
 		{#each fullSchedule as game}
 			{#if game[scheduleScoreH]}
 				<div class='grid gap-4 grid-cols-2 border border-blue-800 float-left dark:bg-gray-300 dark:text-gray-800 w-96'>

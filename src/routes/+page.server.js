@@ -57,6 +57,14 @@ export async function load ({ params }) {
         return 0;
     });
     let fullSchedule;
+    if(scheduleP4[1]['values']){
+        scheduleP4[1]['values'] = scheduleP4[1]['values'].filter(winner => winner[scheduleWinnerH])
+        scheduleP4[2]['values'] = scheduleP4[2]['values'].filter(winner => winner[scheduleWinnerH])
+        scheduleP4[3]['values'] = scheduleP4[3]['values'].filter(winner => winner[scheduleWinnerH])
+        scheduleP4[4]['values'] = scheduleP4[4]['values'].filter(winner => winner[scheduleWinnerH])
+        scheduleIndy[0]['values'] = scheduleIndy[0]['values'].filter(winner => winner[scheduleWinnerH])
+        scheduleIndy[1]['values'] = scheduleIndy[1]['values'].filter(winner => winner[scheduleWinnerH])
+    }
     try {
         fullSchedule = scheduleP4[1]['values'].splice(scheduleP4[1]['values'].length-4, scheduleP4[1]['values'].length).concat(scheduleP4[2]['values'].splice(scheduleP4[2]['values'].length-8, scheduleP4[2]['values'].length)).concat(scheduleP4[3]['values'].splice(scheduleP4[3]['values'].length-8, scheduleP4[3]['values'].length)).concat(scheduleP4[4]['values'].splice(scheduleP4[4]['values'].length-8, scheduleP4[4]['values'].length)).concat(scheduleIndy[0]['values'].splice(scheduleIndy[0]['values'].length-8, scheduleIndy[0]['values'].length)).concat(scheduleIndy[1]['values'].splice(scheduleIndy[1]['values'].length-8, scheduleIndy[1]['values'].length))
     } catch (error) {

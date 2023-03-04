@@ -42,7 +42,7 @@
             {#if stats17[0]}
                 {#if player[0][4].includes('Free')}
                     <div>
-                        <img class='h-80 m-auto' alt='logo' src='../../src/assets/logos/RLPC_Logo.png'/>
+                        <img class='h-80 m-auto' alt='logo' src='..//logos/RLPC_Logo.png'/>
                         <div class='text-xl stats'>
                             <h2><strong>Goals Per Game:</strong>  {stats17[0][8]} ({stats17[0][3]})</h2>
                             <h2><strong>Assists Per Game:</strong> {stats17[0][9]} ({stats17[0][4]})</h2>
@@ -52,7 +52,7 @@
                     </div>
                 {:else if player[0][4]}
                     <div>
-                        <img class='h-80 m-auto' alt='logo' src='../src/assets/logos/{player[0][4].split('\/')[player[0][4].split('\/').length-1]}_Logo.png'/>
+                        <img class='h-80 m-auto' alt='logo' src='/logos/{player[0][4].split('\/')[player[0][4].split('\/').length-1]}_Logo.png'/>
                         <div class='text-xl stats'>
                             <h2><strong>Goals Per Game:</strong>  {stats17[0][8]} ({stats17[0][3]})</h2>
                             <h2><strong>Assists Per Game:</strong> {stats17[0][9]} ({stats17[0][4]})</h2>
@@ -76,7 +76,7 @@
                 {#if player[0][4].includes('Free') || player[0][4].includes('Wait')}
                     <img class='h-80 m-auto' alt='logo' src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png'/>
                 {:else if player[0][4]}
-                    <img class='h-80 m-auto' alt='logo' src='../src/assets/logos/{player[0][4].split('\/')[player[0][4].split('\/').length-1]}_Logo.png'/>
+                    <img class='h-80 m-auto' alt='logo' src='/logos/{player[0][4].split('\/')[player[0][4].split('\/').length-1]}_Logo.png'/>
                 {:else} 
                     <img class='h-80 m-auto' alt='logo' src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png'/>
                 {/if}

@@ -16,7 +16,7 @@
             <div class='py-6 gap-2 grid md:grid-cols-4 2'>
                 <h2 class='md:col-span-4 col-span-2 py'>{league} Power Rankings</h2>
                 {#each powerRankings as team (team.id)}
-                    <TeamPR team={team.team} logo='../src/assets/logos/{team.logo.split('\/')[team.logo.split('\/').length-1]}' standing={team.id}  top={team.top} color={team.color}/>
+                    <TeamPR team={team.team} logo='/logos/{team.logo.split('\/')[team.logo.split('\/').length-1]}' standing={team.id}  top={team.top} color={team.color}/>
                 {/each}
             </div>
         </div>

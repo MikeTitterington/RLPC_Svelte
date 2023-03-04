@@ -68,7 +68,7 @@
                 {/if}
             </div>
             <div>
-                <img class='object-contain m-auto' src='../../src/assets/logos/{team[0][5]}_Logo.png' alt='{team[0][5]} logo'/>
+                <img class='object-contain m-auto' src='..//logos/{team[0][5]}_Logo.png' alt='{team[0][5]} logo'/>
             </div>
             <div>
                 <h2 class='font-bold text-2xl p-4 -mb-5'>

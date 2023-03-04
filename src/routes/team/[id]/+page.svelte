@@ -73,7 +73,7 @@
                 {/if}
             </div>
             <div>
-                <img class='object-contain m-auto w-80' src='../src/assets/logos/{team[0][0].split("\/")[team[0][0].split("\/").length-1]}' alt='{team[0][5]} logo'/>
+                <img class='object-contain m-auto w-80' src='/logos/{team[0][0].split("\/")[team[0][0].split("\/").length-1]}' alt='{team[0][5]} logo'/>
             </div>
         </div>
     {/if}

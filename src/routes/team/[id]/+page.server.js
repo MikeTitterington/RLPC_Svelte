@@ -48,13 +48,10 @@ export async function load ({params}) {
         playerEnrollH = findHeaderCol(playerHeaders, "Enrollment")
         team = getSheetsP4r[0];
         team = team['values'].filter(team => team[teamNameH].toLowerCase() === id.toLowerCase());
-        console.log('test')
         teamSub = getSheetsP4r[5];
         teamSub = teamSub['values'].filter(team => team[teamNameH].toLowerCase() === id.toLowerCase());
-        console.log(teamSub)
         team.push(teamSub[0][teamSub[0].length-1])
         team.push(teamSub[0][teamSub[0].length-2])
-        console.log(team)
         if(team === []){
             team = [[]]
         }

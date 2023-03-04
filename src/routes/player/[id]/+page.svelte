@@ -43,7 +43,7 @@
             {#if stats17[0]}
                 {#if player[0][4].includes('Free')}
                     <div>
-                        <img class='h-80 m-auto' alt='logo' src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png'/>
+                        <img class='h-80 m-auto' alt='logo' src='../../logos/RLPC_Logo.png'/>
                         <div class='text-xl stats'>
                             <h2><strong>Goals Per Game:</strong>  {stats17[0][8]} ({stats17[0][3]})</h2>
                             <h2><strong>Assists Per Game:</strong> {stats17[0][9]} ({stats17[0][4]})</h2>

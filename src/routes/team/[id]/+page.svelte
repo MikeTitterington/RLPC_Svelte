@@ -21,7 +21,6 @@
         schedule = data.schedule
         teamStats = data.teamStats
         control = data.control
-        console.log(control)
         majorCap = data.majorCap
         aaaCap = data.aaaCap
         aaCap = data.aaCap
@@ -48,9 +47,9 @@
     }
 	import Player from '../../../components/Player.svelte';
 </script>
-<div in:fade="{{ duration:1000, ease:'circ' }}" class='my-8 py-4 w-full h-full grid gap-4 grid-cols-1 p-8 dark:bg-gray-600 text-gray-300 text-center rounded-md shadow-sm hover:shadow-md flex flex-col items-center'>
+<div in:fade="{{ duration:1000, ease:'circ' }}" class='my-8 py-4 w-full h-full grid gap-4 grid-cols-1 p-8 dark:bg-gray-600 text-gray-300 text-center rounded-md shadow-sm hover:shadow-md flex flex-col teamCard items-center'>
     {#if team[0]}
-        <div class='py-4 grid gap-4 grid-cols-2 text-center'>
+        <div class='py-4 grid gap-4  md:grid-cols-2 grid-cols-1 text-center'>
             <div class='text-center items-center'>
                 <h1 class='font-bold text-5xl p-4'>{team[0][5]}</h1>
                 <h2 class='font-bold text-3xl p-4'>GM: {team[0][9]}</h2>
@@ -74,7 +73,7 @@
                 {/if}
             </div>
             <div>
-                <img class='object-contain m-auto' src='{team[0][0]}' alt='{team[0][5]} logo'/>
+                <img class='object-contain m-auto w-80' src='../../logos/{team[0][0].split("\/")[team[0][0].split("\/").length-1]}' alt='{team[0][5]} logo'/>
             </div>
         </div>
     {/if}
@@ -226,11 +225,8 @@
 
 {/if}
 </div>
-
-
-
 <style>
-    img {
-        max-height: 500px;
+    .teamCard{
+        border: 3px black solid;
     }
 </style>

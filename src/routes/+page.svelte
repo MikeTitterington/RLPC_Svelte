@@ -64,7 +64,7 @@
 			{/if}
 		{/each}
 	</div>
-	<img class='h-96' src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png' alt='logo' />
+	<img class='h-96' src='../logos/RLPC_Logo.png' alt='logo' />
 	<p class='text-2xl text-center'>The RLPC is a 3k+ member, NA-based, league organization created in 2017. RLPC combines a competitive Rocket League scene and a traditional sports background, with a setup that includes affiliated leagues, call-ups/send-downs, MMRs caps, contracts, a draft system for new players, free agency, player trading, and more. RLPC’s goal is to offer a league where members can improve while playing and hopefully move on to Professional and Collegiate Rocket League levels.</p><br><br>
 	<h2 class='text-center'>Recent News Articles</h2>
 	<div class='py-4 grid gap-4 md:grid-cols-6 grid-cols-2 m-4'>

@@ -56,7 +56,7 @@
                                 <tbody>
                                     {#each division1 as team}
                                         <tr class=" bg-gray-100 border-b">
-                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../src/assets/logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
                                             <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
                                             <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
                                             <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
@@ -91,7 +91,7 @@
                                     <tbody>
                                         {#each division1 as team}
                                             <tr class=" bg-gray-100 border-b">
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../src/assets/logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
                                                 <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
                                                 <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
                                                 <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
@@ -124,7 +124,7 @@
                                 <tbody>
                                     {#each division2 as team}
                                         <tr class=" bg-gray-100 border-b">
-                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../src/assets/logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
                                             <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
                                             <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
                                             <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
@@ -157,7 +157,7 @@
                                 <tbody>
                                     {#each division3 as team}
                                         <tr class=" bg-gray-100 border-b">
-                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../src/assets/logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
                                             <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
                                             <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
                                             <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>
@@ -190,7 +190,7 @@
                                 <tbody>
                                     {#each division4 as team}
                                         <tr class=" bg-gray-100 border-b">
-                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
+                                            <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'><a href='/team/{team[1]}'><img src='../src/assets/logos/{team[0].split('\/')[team[0].split('\/').length-1]}' class='m-auto object-contain w-40 h-40 items-center' alt='team logo'/></a></td>
                                             <td class='text-xl text-gray-900 px-6 py-4 whitespace-nowrap font-bold'><a href='/team/{team[1]}'>{team[1]}</a></td>
                                             <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[2]}</td>
                                             <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap'>{team[3]}</td>

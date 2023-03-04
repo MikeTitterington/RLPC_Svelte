@@ -64,11 +64,13 @@ export async function load ({ params }) {
         scheduleP4[4]['values'] = scheduleP4[4]['values'].filter(winner => winner[scheduleWinnerH])
         scheduleIndy[0]['values'] = scheduleIndy[0]['values'].filter(winner => winner[scheduleWinnerH])
         scheduleIndy[1]['values'] = scheduleIndy[1]['values'].filter(winner => winner[scheduleWinnerH])
-    }
-    try {
-        fullSchedule = scheduleP4[1]['values'].splice(scheduleP4[1]['values'].length-4, scheduleP4[1]['values'].length).concat(scheduleP4[2]['values'].splice(scheduleP4[2]['values'].length-8, scheduleP4[2]['values'].length)).concat(scheduleP4[3]['values'].splice(scheduleP4[3]['values'].length-8, scheduleP4[3]['values'].length)).concat(scheduleP4[4]['values'].splice(scheduleP4[4]['values'].length-8, scheduleP4[4]['values'].length)).concat(scheduleIndy[0]['values'].splice(scheduleIndy[0]['values'].length-8, scheduleIndy[0]['values'].length)).concat(scheduleIndy[1]['values'].splice(scheduleIndy[1]['values'].length-8, scheduleIndy[1]['values'].length))
-    } catch (error) {
-        console.log(error)
+        try {
+            fullSchedule = scheduleP4[1]['values'].splice(scheduleP4[1]['values'].length-4, scheduleP4[1]['values'].length).concat(scheduleP4[2]['values'].splice(scheduleP4[2]['values'].length-8, scheduleP4[2]['values'].length)).concat(scheduleP4[3]['values'].splice(scheduleP4[3]['values'].length-8, scheduleP4[3]['values'].length)).concat(scheduleP4[4]['values'].splice(scheduleP4[4]['values'].length-8, scheduleP4[4]['values'].length)).concat(scheduleIndy[0]['values'].splice(scheduleIndy[0]['values'].length-8, scheduleIndy[0]['values'].length)).concat(scheduleIndy[1]['values'].splice(scheduleIndy[1]['values'].length-8, scheduleIndy[1]['values'].length))
+        } catch (error) {
+            console.log(error)
+            fullSchedule = []
+        }
+    }else {
         fullSchedule = []
     }
     let range = `ranges=Articles!A2:C`

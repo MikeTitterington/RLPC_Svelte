@@ -21,7 +21,6 @@ export async function load ({params}) {
     let articles = getAllRequests[0];
     articles = articles['values'];
     articles = articles.filter(team => team[1])
-    console.log(articles)
     return{
         articles : articles
     }

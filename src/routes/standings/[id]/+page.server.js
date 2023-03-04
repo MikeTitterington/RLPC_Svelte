@@ -48,7 +48,6 @@ async function getStandings(league, team, fullStandings, start){
     export async function load ({params}) {
         const id = params.id;
         const league = id;
-        console.log(id)
         let division1, division2, division3, division4 = [];
         let division1Name, division2Name, division3Name, division4Name = "";
         let fullStandings;
@@ -75,12 +74,10 @@ async function getStandings(league, team, fullStandings, start){
             division3 = await getStandings(league,team,fullStandings[0]['values'], 8)
             division3Name = division3[0][5]
             division4 = await getStandings(league,team,fullStandings[0]['values'], 12)
-            console.log(division3)
             division4Name = division4[0][5]
             let i = 0
             while(division1 === undefined && i < 10){
                 i = i + 1
-                console.log(i)
             }
             if (league == 'Major') {
                 division1 = division1.concat(division2, division3, division4)

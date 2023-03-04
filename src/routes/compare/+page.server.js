@@ -37,7 +37,6 @@ export async function load () {
     let scheduleP4 = await getSheets(sheetsStoreP4, rangeP4)
     let Headers = scheduleP4[0]
     let schedulePlayerH = findHeaderCol(Headers, "Player")
-    console.log(schedulePlayerH)
     let scheduleGoalsH = findHeaderCol(Headers, "Goals per game")
     let scheduleAssistsH = findHeaderCol(Headers, "Assists per game")
     let scheduleSavesH = findHeaderCol(Headers, "Saves per game")

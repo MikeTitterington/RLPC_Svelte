@@ -23,7 +23,6 @@ export async function load ({params}) {
     article = article['values'];
     article = article.filter(team => team[0] == articleID)
     article = article[0][3]
-    console.log(article)
     return{
         article : article
     }

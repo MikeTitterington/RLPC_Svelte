@@ -630,39 +630,30 @@ async function getSheets (url, range) {
             if (league == 'Major'){
                 powerRankings = allPowerRankings[0]['values']
                 league = 'Major'
-                console.log('test')
             } else if (league == 'AAA'){
                 powerRankings = allPowerRankings[1]['values']
                 league = 'AAA'
-                console.log('test')
             } else if (league == 'AA'){
                 powerRankings = allPowerRankings[2]['values']
                 league = 'AA'
-                console.log('test')
             } else if (league == 'A'){
                 powerRankings = allPowerRankings[3]['values']
                 league = 'A'
-                console.log('test')
             } else if (league == 'Independent'){
                 powerRankings = allPowerRankings[4]['values']
                 league = 'Indy'
-                console.log('test')
             } else if (league == 'Maverick'){
                 powerRankings = allPowerRankings[5]['values']
                 league = 'Mav'
-                console.log('test')
             } else if (league == 'Renegade'){
                 powerRankings = allPowerRankings[6]['values']
                 league = 'Renegade'
-                console.log('test')
             } else if (league == 'IndyOrg'){
                 powerRankings = allPowerRankings[7]['values']
                 league = 'Indy Org'
-                console.log('test')
             } else if (league == 'P4Org'){
                 powerRankings = allPowerRankings[8]['values']
                 league = 'P4 Org'
-                console.log('test')
             }
         } catch (e){
             console.log(e)
@@ -673,7 +664,6 @@ async function getSheets (url, range) {
         var i = 1;
         var powerRankingsLocal = [];
         var tempAr2 = powerRankings;
-        console.log(tempAr2)
         if (tempAr2) {
             tempAr2.forEach(function(tempN) {
                 var powerRankingsLocalTemp = {id:i}
@@ -694,7 +684,6 @@ async function getSheets (url, range) {
                 i = i + 1;
             })
             powerRankings = powerRankingsLocal
-            console.log(powerRankings)
         }
         return{
             powerRankings : powerRankings,

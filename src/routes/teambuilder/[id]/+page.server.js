@@ -15,7 +15,6 @@ async function getSheets (url, range) {
 export async function load ({page}) {
     const league = page.params.id;
     let temp = await getSheets('1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE', 'ranges=Players!A2:AF&ranges=MMR%20Cutoff%20Calculations!A21:A41')
-    console.log(temp)
     let teamsIndy = temp[0]['values'].sort(function(a, b){return b[8]-a[8]});
     let cap = temp[1]['values'];
     let capSpace = "999999"

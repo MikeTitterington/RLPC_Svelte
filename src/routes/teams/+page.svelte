@@ -43,15 +43,15 @@
 <svelte:head>
 	<title>Teams</title>
 </svelte:head>
-<div in:fade="{{ duration:1000, ease:'circ' }}">
+<div in:fade="{{ duration:2000, ease:'circ' }}">
 	<input class='my-8 w-full rounded-md text-lg p-4 border-2 border-gray-200' type='text' bind:value={searchTerm} placeholder='Search Teams' >
 
 	<div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-2'>
 		{#each filteredTeams as team}
 			{#if team[aff2H]}
-				<Team name={team[teamNameH]}, logo='logos/{team[logoH].split("\/")[team[logoH].split("\/").length-1]}', aaa={team[aff1H]}, aa={team[aff2H]}, a={team[aff3H]} />
+				<Team name={team[teamNameH]}, logo='../src/assets/logos/{team[logoH].split("\/")[team[logoH].split("\/").length-1]}', aaa={team[aff1H]}, aa={team[aff2H]}, a={team[aff3H]} />
 			{:else}
-				<Team name={team[teamNameH]}, logo='logos/{team[logoH].split("\/")[team[logoH].split("\/").length-1]}', aaa={team[aff1H]} />
+				<Team name={team[teamNameH]}, logo='../src/assets/logos/{team[logoH].split("\/")[team[logoH].split("\/").length-1]}', aaa={team[aff1H]} />
 			{/if}
 		{/each}
 	</div>

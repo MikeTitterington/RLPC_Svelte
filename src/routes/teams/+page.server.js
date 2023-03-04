@@ -38,7 +38,6 @@ export async function load () {
     var url = sheetsStoreP4;
     let range = "ranges=Teams!A1:P1&ranges=Teams!A2:P17&ranges=Teams!A66:P81"
     let getRequest = await getSheets(url, range)
-    console.log(getRequest)
     let headers = getRequest[0] 
     let teamNameH = findHeaderCol(headers, "Team")
     let aff1H = findHeaderCol(headers, "AAA Affiliate")

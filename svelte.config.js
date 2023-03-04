@@ -1,5 +1,6 @@
 /** @type {import('@sveltejs/kit').Config} */
 import adapter from '@sveltejs/adapter-node';
+import { imagetools } from 'vite-imagetools'
 const config = {
 	// options passed to svelte.compile (https://svelte.dev/docs#compile-time-svelte-compile)
 	compilerOptions: {},
@@ -31,7 +32,7 @@ const config = {
 		  client: 'src/hooks.client',
 		  server: 'src/hooks.server'
 		},
-		lib: 'src/lib',
+		lib: 'src/assets/logos',
 		params: 'src/params',
 		routes: 'src/routes',
 		serviceWorker: 'src/service-worker',
@@ -54,7 +55,7 @@ const config = {
 		pollInterval: 0
 	  }
 	},
-   
+	plugins: [imagetools()],
 	// options passed to @sveltejs/package
 	package: {
 	  source: 'value of kit.files.lib, if available, else src/lib',

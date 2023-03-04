@@ -79,13 +79,11 @@
         filteredPlayers.splice(index,1)
         team.push([...temp])
         team = [...team]
-        console.log(team)
         let total = 0
         team.forEach((item) => {
             total = total + item[3];
         });
         leftSpace = capSpace-total;
-        console.log(leftSpace);
     }
 	
 		function handleDragStart(e) {

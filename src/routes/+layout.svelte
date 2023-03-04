@@ -172,12 +172,12 @@
 				  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 				</svg>
 			  </button>
-			  <img class=' p-0 h-20 text-center m-0 w-full object-contain' src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png' alt='logo' />
+			  <img class=' p-0 h-20 text-center m-0 w-full object-contain' src='logos/RLPC_Logo.png' alt='logo' />
 			</div>
 			<div class="flex-1 flex items-center justify-start sm:items-stretch sm:justify-start">
 			  <div class="hidden sm:block sm:ml-6">
 				<div class="flex space-x-4">
-					<img class='h-20 flex origin-top-right' src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png' alt='logo' />
+					<img class='h-20 flex origin-top-right' src='logos/RLPC_Logo.png' alt='logo' />
 					{#each navItems as item}
 						<a  data-sveltekit-preload-data="hover" href="{item.href}" class="m-auto text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg" aria-current="page" on:click={() => handleClick(item.label)}>{item.label}</a>
 					{/each}

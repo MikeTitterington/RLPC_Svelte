@@ -10,16 +10,12 @@ sheetsIndy.subscribe((data) => {
 })
 
 import { env } from '$env/dynamic/private';
+
 async function getSheets (url, range) {
-    const {
-        statusCode,
-        headers,
-        trailers,
-        body
-        } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY);
-    let Output = await body.json()
+    const res = await fetch('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY)
+    const Output = await res.json()
     return await Output['valueRanges'];
-} 
+}
 
 async function getStandings(league, team, fullStandings, start){
     let division1;
@@ -45,7 +41,7 @@ async function getStandings(league, team, fullStandings, start){
 }
 
 /** @type {import('./$types').PageServerLoad} */
-    export async function load ({params}) {
+    export async function load ({fetch, params}) {
         const id = params.id;
         const league = id;
         let division1, division2, division3, division4 = [];

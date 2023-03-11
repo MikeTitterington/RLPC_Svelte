@@ -11,17 +11,14 @@ sheetsIndy.subscribe((data) => {
 })
 
 import { env } from '$env/dynamic/private';
+
 async function getSheets (url, range) {
-    const {
-        statusCode,
-        headers,
-        trailers,
-        body
-        } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values/' + range + '?key='+ env.API_KEY);
-    let Output = await body.json()
-    return await Output;
-} 
-export async function load ({params}) {
+    const res = await fetch('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY)
+    const Output = await res.json()
+    return await Output['valueRanges'];
+}
+
+export async function load ({fetch, params}) {
     const id = params.id;
     const league = params.league;
     let League = league

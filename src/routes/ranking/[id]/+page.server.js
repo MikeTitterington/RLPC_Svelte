@@ -2,16 +2,13 @@
 import { request } from 'undici';
 
 import { env } from '$env/dynamic/private';
+
 async function getSheets (url, range) {
-    const {
-        statusCode,
-        headers,
-        trailers,
-        body
-        } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY);
-    let Output = await body.json()
+    const res = await fetch('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY)
+    const Output = await res.json()
     return await Output['valueRanges'];
-} 
+}
+
     let teamMap = {
         "ascension": {
         "1": " #ffcf56",
@@ -620,7 +617,7 @@ async function getSheets (url, range) {
     };
     
 /** @type {import('./$types').PageServerLoad} */
-    export async function load ({params}) {
+    export async function load ({fetch, params}) {
         const rank = params.id;
         let powerRankings;
         let league = rank;

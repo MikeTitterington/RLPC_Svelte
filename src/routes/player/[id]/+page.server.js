@@ -11,7 +11,7 @@ sheetsIndy.subscribe((data) => {
 })
 import { env } from '$env/dynamic/private';
 /** @type {import('./$types').PageServerLoad} */
-export async function load ({ params }) {
+export async function load ({ fetch, params }) {
     const id = params.id.replace(/[^\w\s]/gi, '');
     let player, player17, stats17, teamimage, trackers, headers, gameStats, name;
     let ranges = 'ranges=Old%20Players!A2:AF&ranges=Old%20Players!A2:V&ranges=Teams!A:F&ranges=Old%20Players!A2:V&ranges=Old%20Players!A1:V1'
@@ -80,13 +80,8 @@ export async function load ({ params }) {
 }
 
 async function getSheets (url, range) {
-    const {
-        statusCode,
-        headers,
-        trailers,
-        body
-      } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY);
-    let Output = await body.json()
+    const res = await fetch('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY)
+    const Output = await res.json()
     return await Output['valueRanges'];
 }
 

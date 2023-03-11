@@ -10,7 +10,7 @@ sheetsIndy.subscribe((data) => {
     sheetsStoreIndy = data
 })
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
+export async function load({ fetch, params }) {
     let teamsIndy = [];
     let searchTerm = "";
     let filteredPlayers = [];
@@ -34,15 +34,10 @@ export async function load({ params }) {
 
     }
 }
-async function getSheets (url, range) {
-    const {
-        statusCode,
-        headers,
-        trailers,
-        body
-      } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY);
 
-    let Output = await body.json()
+async function getSheets (url, range) {
+    const res = await fetch('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY)
+    const Output = await res.json()
     return await Output['valueRanges'];
 }
 

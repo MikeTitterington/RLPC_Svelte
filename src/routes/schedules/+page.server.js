@@ -9,14 +9,10 @@ sheetsIndy.subscribe((data) => {
     sheetsStoreIndy = data
 })
 import { env } from '$env/dynamic/private';
+
 async function getSheets (url, range) {
-    const {
-        statusCode,
-        headers,
-        trailers,
-        body
-      } = await request('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY);
-    let Output = await body.json()
+    const res = await fetch('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY)
+    const Output = await res.json()
     return await Output['valueRanges'];
 }
 
@@ -32,7 +28,7 @@ function findHeaderCol(headers, name){
 }
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load ({ params }) {
+export async function load ({ fetch, params }) {
     let rangeP4 = 'ranges=Major%20Schedule!O4:X4&ranges=Major%20Schedule!O5:X&ranges=AAA%20Schedule!O5:X&ranges=AA%20Schedule!O5:X&ranges=A%20Schedule!O5:X&ranges=Teams!A2:G97&ranges=Teams!A1:G1'
     let scheduleP4 = await getSheets(sheetsStoreP4, rangeP4)
     let rangeIndy = 'ranges=Independent%20Schedule!O5:X&ranges=Maverick%20Schedule!O5:X'

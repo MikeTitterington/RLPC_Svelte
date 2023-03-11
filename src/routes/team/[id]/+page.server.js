@@ -91,7 +91,9 @@ export async function load ({params}) {
             console.log('No Schedule')
         }
         let getTeamStats = getSheetsSpecificr[1]
-        teamStats = getTeamStats['values'].filter(team => team[0]).filter(team => team[0].toLowerCase() === id.toLowerCase() || team[5].toLowerCase() === id.toLowerCase())[0]
+        if(team[5]){
+            teamStats = getTeamStats['values'].filter(team => team[0]).filter(team => team[0].toLowerCase() === id.toLowerCase() || team[5].toLowerCase() === id.toLowerCase())[0]
+        }
         let stats17 = getSheetsSpecificr[2]
         stats17 = stats17['values'].filter(team => team[0].toLowerCase() === id.toLowerCase());
         control = {}

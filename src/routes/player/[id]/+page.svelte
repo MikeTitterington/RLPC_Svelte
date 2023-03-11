@@ -73,7 +73,7 @@
                 {/if}
             {:else}
                 
-                {#if player[0][4].includes('Free') || player[0][4].includes('Wait')}
+                {#if player[0][4].includes('Free') || player[0][4].includes('Wait') || player[0][4].includes('Ineligible')}
                     <img class='h-80 m-auto' alt='logo' src='https://cdn.discordapp.com/attachments/696962499177742476/989193751526264862/RLPC_Logo.png'/>
                 {:else if player[0][4]}
                     <img class='h-80 m-auto' alt='logo' src='/logos/{player[0][4].split('\/')[player[0][4].split('\/').length-1]}_Logo.png'/>

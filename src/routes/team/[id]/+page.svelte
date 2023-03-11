@@ -27,18 +27,20 @@
         aCap = data.aCap
         indyCap = data.indyCap
         mavCap = data.mavCap
-        if (players[0][5] == 'Major'){
-            cap = majorCap
-        } else if (players[0][5] == 'AAA'){
-            cap = aaaCap
-        } else if (players[0][5] == 'AA'){
-            cap = aaCap
-        } else if (players[0][5] == 'A'){
-            cap = aCap
-        } else if (players[0][5] == 'Independent'){
-            cap = indyCap
-        } else if (players[0][5] == 'Maverick'){
-            cap = mavCap
+        if (players[0]){
+            if (players[0][5] == 'Major'){
+                cap = majorCap
+            } else if (players[0][5] == 'AAA'){
+                cap = aaaCap
+            } else if (players[0][5] == 'AA'){
+                cap = aaCap
+            } else if (players[0][5] == 'A'){
+                cap = aCap
+            } else if (players[0][5] == 'Independent'){
+                cap = indyCap
+            } else if (players[0][5] == 'Maverick'){
+                cap = mavCap
+            }
         }
         cap = parseInt(cap) - parseInt(team[0][team[0].length-1])
         players.forEach(player => {
@@ -88,11 +90,13 @@
     </div>
     <div class='grid gap-4 md:grid-cols-2 grid-cols-1'>
         <div class="bg-gray-300 text-gray-800 w-full">
-            {#if players[0][5] != 'Major'}
-              <h2 class='text-xl p-4'><strong>Cap Space:</strong> {total}/{cap} <strong>Left:</strong> {cap-total}</h2>
-              <h2 class='text-xl p-4'><strong>Free Agent Subs Remaining:</strong> {team[1]}</h2>
-              <h2 class='text-xl p-4'><strong>Waitlist Subs Remaining:</strong> {team[2]}</h2>
-              <h2 class='text-xl p-4'><strong>Used Send Down:</strong> {team[0][team[0].length-6]}</h2>
+            {#if players[0]}
+                {#if players[0][5] != 'Major'}
+                <h2 class='text-xl p-4'><strong>Cap Space:</strong> {total}/{cap} <strong>Left:</strong> {cap-total}</h2>
+                <h2 class='text-xl p-4'><strong>Free Agent Subs Remaining:</strong> {team[1]}</h2>
+                <h2 class='text-xl p-4'><strong>Waitlist Subs Remaining:</strong> {team[2]}</h2>
+                <h2 class='text-xl p-4'><strong>Used Send Down:</strong> {team[0][team[0].length-6]}</h2>
+                {/if}
             {/if}
             <h2 class='text-xl p-4'><strong>Freebee Count:</strong> {team[0][team[0].length-5]}</h2>
         </div>

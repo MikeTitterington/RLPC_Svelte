@@ -50,7 +50,7 @@ async function getStandings(league, team, fullStandings, start){
         let team;
         let sheet;
         if (league == 'Major' || league == 'AAA' || league == 'AA' || league == 'A' || id === 'Independent' || id === 'Maverick' || id === 'Renegade' || id === 'Palidan'){
-            let range = `ranges=Standings!W17:AJ73`
+            let range = `ranges=Standings!W17:AJ`
             if (id === 'Independent' || id === 'Maverick' || id === 'Renegade' || id === 'Palidan') {
                 sheet = sheetsStoreIndy
             }else {

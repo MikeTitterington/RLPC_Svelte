@@ -19,7 +19,7 @@ export async function load({ fetch, params }) {
     let playerPlatformH = 2;
     let playerMMRH = 3;
     let playerIDH = -1;
-    let ranges = "ranges=Old%20Players!A2:AF&ranges=Old%20Players!A1:AF1"
+    let ranges = "ranges=Players!A2:AF&ranges=Players!A1:AF1"
     let temp = await getSheets(sheetsStoreP4, ranges)
     let headers = temp[1]
     teamsIndy = temp[0]['values'].sort(function(a, b){return b[playerMMRH]-a[playerMMRH]})

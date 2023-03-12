@@ -20,7 +20,7 @@ async function getSheets (url, range) {
 
 export async function load ({fetch, params}) {
     const league = params.id;
-    let ranges = "ranges=Old%20Players!A2:AF&ranges=Old%20Players!A1:AF1"
+    let ranges = "ranges=Players!A2:AF&ranges=Players!A1:AF1"
     let temp = await getSheets(sheetsStoreP4, ranges)
     let headers = temp[1]
     let playerMMRH = findHeaderCol(headers, "Tracker MMR")

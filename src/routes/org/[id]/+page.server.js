@@ -34,7 +34,7 @@ export async function load ({fetch, params}) {
     let team = [[]];
     let filtTeam = []
     let schedule, teamStats, sheet, control, getSheetsP4r
-    let rangeP4 = 'ranges=Teams!A2:V113&ranges=Old%20Players!A2:AF&ranges=Teams!A1:P1&ranges=Old%20Players!A1:AF1&ranges=P4%20Org%20Draft%20Pick%20List!M3:W&ranges=Independent%20Org%20Draft%20Pick%20List!M3:W&ranges=MMR%20Cutoff%20Calculations!A21:A41'
+    let rangeP4 = 'ranges=Teams!A2:V113&ranges=Players!A2:AF&ranges=Teams!A1:P1&ranges=Players!A1:AF1&ranges=P4%20Org%20Draft%20Pick%20List!M3:W&ranges=Independent%20Org%20Draft%20Pick%20List!M3:W&ranges=MMR%20Cutoff%20Calculations!A21:A41'
     let teamHeaders,playerHeaders,teamNameH,aff1H,aff2H,aff3H, playerTeamH,playerMMRH,playerPlayingH, majorCap, aaaCap, aaCap, aCap, indyCap, mavCap
 
     try {

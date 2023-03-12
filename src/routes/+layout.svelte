@@ -220,13 +220,14 @@
 								class="origin-top-right absolute w-48 py-2 mt-0 bg-gray-700 rounded shadow-md grid gap-4 grid-cols-1 text-center">
 								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/teams" on:click={() => handleClick("Teams")}>Teams</a>
 								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/players" on:click={() => handleClick("Players")}>Players</a>
-								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/freeagents/{$defaultLeague}" on:click={() => handleClick("FreeSwitch")}>Free Agents</a> -->
+								<!-- <a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/teambuilder/{$defaultLeague}" on:click={() => handleClick("Players")}>Team Builder</a> -->
+								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/freeagents/{$defaultLeague}" on:click={() => handleClick("FreeSwitch")}>Free Agents</a>
 								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/draftees/{$defaultLeague}" on:click={() => handleClick("DrafteeSwitch")}>Waitlist/Draftee</a>
 							</div>
 							{/if}
 						</div>
 					</div>
-					<!-- <div class='m-auto'>
+					<div class='m-auto'>
 						<div on:mouseenter={() => ($showStatsD = true)}  on:mouseleave={() => ($showStatsD = false)} class='hover:bg-gray-700 '>
 							<div class='menu focus:outline-none focus:shadow-solid text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg'>
 								<button class='grid grid-cols-2 mx-0 flex items-center justify-center -mr-6' on:click={() => ($showStatsD = !$showStatsD)}>Stats
@@ -247,7 +248,7 @@
 							</div>
 							{/if}
 						</div>
-					</div> -->
+					</div>
 					<div class='m-auto'>
 						<div on:mouseenter={() => (showAboutD = true)}  on:mouseleave={() => (showAboutD = false)} class='hover:bg-gray-700 '>
 							<div class='menu focus:outline-none focus:shadow-solid text-gray-300 hover:bg-gray-700 hover:text-white px-2 py-2 rounded-md text-lg'>
@@ -362,8 +363,8 @@
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/A" on:click={() => $defaultLeague = 'A'}>A</a>
-				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/Independent" on:click={() => $defaultLeague = 'Independent'}>Independent</a>
-				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/Maverick" on:click={() => $defaultLeague = 'Maverick'}>Maverick</a>
+				<!-- <a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/Independent" on:click={() => $defaultLeague = 'Independent'}>Independent</a>
+				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/Maverick" on:click={() => $defaultLeague = 'Maverick'}>Maverick</a> -->
 				<!-- <a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/stats/Renegade" on:click={() => $defaultLeague = 'Renegade'}>Renegade</a> -->
 				</nav>
 			{/if}
@@ -373,8 +374,8 @@
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/A" on:click={() => $defaultLeague = 'A'}>A</a>
-				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/Independent" on:click={() => $defaultLeague = 'Independent'}>Independent</a>
-				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/Maverick" on:click={() => $defaultLeague = 'Maverick'}>Maverick</a>
+				<!-- <a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/Independent" on:click={() => $defaultLeague = 'Independent'}>Independent</a>
+				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/Maverick" on:click={() => $defaultLeague = 'Maverick'}>Maverick</a> -->
 				<!-- <a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/collected/Renegade" on:click={() => $defaultLeague = 'Renegade'}>Renegade</a> -->
 				</nav>
 			{/if}
@@ -384,8 +385,8 @@
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/A" on:click={() => $defaultLeague = 'A'}>A</a>
-				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/Independent" on:click={() => $defaultLeague = 'Independent'}>Independent</a>
-				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/Maverick" on:click={() => $defaultLeague = 'Maverick'}>Maverick</a>
+				<!-- <a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/Independent" on:click={() => $defaultLeague = 'Independent'}>Independent</a>
+				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/Maverick" on:click={() => $defaultLeague = 'Maverick'}>Maverick</a> -->
 				<!-- <a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/standings/Renegade" on:click={() => $defaultLeague = 'Renegade'}>Renegade</a> -->
 				</nav>
 			{/if}
@@ -395,8 +396,8 @@
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/AAA" on:click={() => $defaultLeague = 'AAA'}>AAA</a>
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/AA" on:click={() => $defaultLeague = 'AA'}>AA</a>
 				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/A" on:click={() => $defaultLeague = 'A'}>A</a>
-				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/Independent" on:click={() => $defaultLeague = 'Independent'}>Independent</a>
-				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/Maverick" on:click={() => $defaultLeague = 'Maverick'}>Maverick</a>
+				<!-- <a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/Independent" on:click={() => $defaultLeague = 'Independent'}>Independent</a>
+				<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/Maverick" on:click={() => $defaultLeague = 'Maverick'}>Maverick</a> -->
 				<!-- <a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md' href="/teambuilder/Renegade" on:click={() => $defaultLeague = 'Renegade'}>Renegade</a> -->
 				</nav>
 			{/if}

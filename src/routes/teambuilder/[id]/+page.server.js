@@ -9,8 +9,8 @@ async function getSheets (url, range) {
     return await Output['valueRanges'];
 }
 
-export async function load ({fetch, page}) {
-    const league = page.params.id;
+export async function load ({fetch, params}) {
+    const league = params.id;
     let temp = await getSheets('1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE', 'ranges=Players!A2:AF&ranges=MMR%20Cutoff%20Calculations!A21:A41')
     let teamsIndy = temp[0]['values'].sort(function(a, b){return b[8]-a[8]});
     let cap = temp[1]['values'];

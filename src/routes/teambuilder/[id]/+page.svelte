@@ -3,37 +3,33 @@
 	import {sheetsP4} from '../../../stores/store'
 	import Player from '../../../components/PlayerDrag.svelte';
     /** @type {import('./$types').PageData} */
-    let data;
-    let filteredPlayers;
+    export let data
+    let filteredPlayers
+    let capSpace
+    filteredPlayers = data.filteredPlayers
+    capSpace = data.capSpace
     $: {
-        filteredPlayers = data.filteredPlayers
-        capSpace = data.capSpace
         console.log(filteredPlayers)
-        if (filteredPlayers) {
-            
-            filteredPlayers.forEach((element) => {
-                element.id = getRandomInt(9999999999)
-                element.el = null;
-                element[3] = parseInt(element[3])
-            });
-            filteredPlayers = [... filteredPlayers]
-            columnItems = [
-                {
-                    id: 1,
-                    name: "Valid Players",
-                    items: filteredPlayers
-                },
-                {
-                    id: 2,
-                    name: "My Team",
-                    items: team
-                }
-            ];
-
-        }
+        filteredPlayers.forEach((element) => {
+            element.id = getRandomInt(9999999999)
+            element.el = null;
+            element[3] = parseInt(element[3])
+        });
+		filteredPlayers = [... filteredPlayers]
+        columnItems = [
+            {
+                id: 1,
+                name: "Valid Players",
+                items: filteredPlayers
+            },
+            {
+                id: 2,
+                name: "My Team",
+                items: team
+            }
+        ];
     }
 	let searchTerm = "";
-	export let capSpace;
     let leftSpace = capSpace;
 	let team = [];
     let name = 'world';
@@ -50,6 +46,7 @@
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
     }
+
     let columnItems = [
 		{
 			id: 1,
@@ -176,9 +173,7 @@
 	}
 
     function filterMyTeams(value) {
-        if (filteredPlayers){
-            filteredPlayers = filteredPlayers.filter(team => parseInt(team[3])<= leftSpace);
-        }
+        filteredPlayers = filteredPlayers.filter(team => parseInt(team[3])<= leftSpace);
         return [... team];
     }
     $: team = filterMyTeams(team)

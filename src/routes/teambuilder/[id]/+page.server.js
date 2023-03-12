@@ -3,6 +3,16 @@ import { request } from 'undici';
 
 import { env } from '$env/dynamic/private';
 
+import {sheetsP4, sheetsIndy} from '../../../stores/store.js'
+let sheetsStoreP4;
+let sheetsStoreIndy;
+sheetsP4.subscribe((data) => {
+    sheetsStoreP4 = data
+})
+sheetsIndy.subscribe((data) => {
+    sheetsStoreIndy = data
+})
+
 async function getSheets (url, range) {
     const res = await fetch('https://sheets.googleapis.com/v4/spreadsheets/'+url+'/values:batchGet?' + range + '&key='+ env.API_KEY)
     const Output = await res.json()
@@ -11,7 +21,7 @@ async function getSheets (url, range) {
 
 export async function load ({fetch, params}) {
     const league = params.id;
-    let temp = await getSheets('1Is6nuVcggWi0hPImTRVcORYuGLffcHvM9rd8r6TbWZE', 'ranges=Players!A2:AF&ranges=MMR%20Cutoff%20Calculations!A21:A41')
+    let temp = await getSheets(sheetsStoreP4, 'ranges=Players!A2:AF&ranges=MMR%20Cutoff%20Calculations!A21:A41')
     let teamsIndy = temp[0]['values'].sort(function(a, b){return b[8]-a[8]});
     let cap = temp[1]['values'];
     let capSpace = "999999"
@@ -29,5 +39,5 @@ export async function load ({fetch, params}) {
         capSpace = cap[20]
     }
     let filteredPlayers = teamsIndy.filter(player => player[0]).filter(player => player[5]==league)
-    return{props: {filteredPlayers, capSpace}}
+    return{filteredPlayers, capSpace}
 }

@@ -161,12 +161,16 @@
 	<div class='py-4 grid gap-4 md:grid-cols-6 grid-cols-2'>
 		{#if showAll}
 			{#each filteredPlayers as player}
-				<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
+				<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
 			{/each}
 		{:else}
 			{#each filteredPlayers.slice(0, 50) as player}
-				<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
-			{/each}
+				{#if player[10]}
+					<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={ player[4] + ": Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
+				{:else}
+					<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
+				{/if}
+				{/each}
 		{/if}
 	</div>
 	

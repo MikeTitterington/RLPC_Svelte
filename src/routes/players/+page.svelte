@@ -141,6 +141,22 @@
 		<option value="Miners">Miners</option>
 		<option value="Wranglers">Wranglers</option>
 		<option value="Titans">Titans</option>
+		<option value="Admirals">Admirals</option>
+		<option value="Dragons">Dragons</option>
+		<option value="Beavers">Beavers</option>
+		<option value="Cyclones">Cyclones</option>
+		<option value="Grizzlies">Grizzlies</option>
+		<option value="Centurions">Centurions</option>
+		<option value="Yellow Jackets">Yellow Jackets</option>
+		<option value="Galaxy">Galaxy</option>
+		<option value="Sockeyes">Sockeyes</option>
+		<option value="Wolves">Wolves</option>
+		<option value="Wildcats">Wildcats</option>
+		<option value="Rhinos">Rhinos</option>
+		<option value="Scorpions">Scorpions</option>
+		<option value="Thrashers">Thrashers</option>
+		<option value="Toucans">Toucans</option>
+		<option value="Wizards">Wizards</option>
     </select>
 	<div class='py-4 grid gap-4 md:grid-cols-6 grid-cols-2'>
 		{#if showAll}

@@ -74,7 +74,7 @@
 		<input class='rounded-md border-2 border-gray-200' type='text' bind:value={maxMMR} placeholder='Max MMR' >
 	</label>
 	<select bind:value={selectTeam} class="p-1 border-2">
-        <option value="" disabled selected>Team Select</option>
+        <option value="" selected>Team Select/All</option>
 		<option value="Ineligible">Ineligible</option>
 		<option value="Stale">Tracker Broken</option>
 		<option value="Bulls">Bulls</option>

@@ -219,6 +219,7 @@
 								out:scale={{ duration: 75, start: 0.95 }}
 								class="origin-top-right absolute w-48 py-2 mt-0 bg-gray-700 rounded shadow-md grid gap-4 grid-cols-1 text-center">
 								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/teams" on:click={() => handleClick("Teams")}>Teams</a>
+								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/sheetmimic" on:click={() => handleClick("Players")}>Mimic Sheets Teams</a>
 								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/players" on:click={() => handleClick("Players")}>Players</a>
 								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/teambuilder/{$defaultLeague}" on:click={() => handleClick("Team Builder")}>Team Builder</a>
 								<a  data-sveltekit-preload-data="hover" class='mx-4 text-lg text-gray-300 hover:bg-gray-700 hover:text-white py-2' href="/freeagents/{$defaultLeague}" on:click={() => handleClick("FreeSwitch")}>Free Agents</a>

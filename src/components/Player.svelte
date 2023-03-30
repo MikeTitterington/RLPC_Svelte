@@ -12,6 +12,12 @@
     export let contract;
     export let playerOp;
     export let orgOp;
+    export let elc = "";
+    if (elc == 'Y'){
+        elc = "ELC"
+    }else {
+        elc = ""
+    }
     export let goalspg = "0.00";
     export let assistspg = "0.00";
     export let savespg = "0.00";
@@ -47,7 +53,7 @@
         <h2>{region.replace(/[^\w\s]/gi, '')}</h2>
         <h2>{platform.replace(/[^\w\s]/gi, '')}</h2>
         {#if contract}
-            <h2>{contract} PO: {playerOp} OO: {orgOp}</h2>
+            <h2>{contract} PO: {playerOp} OO: {orgOp} {elc}</h2>
         {/if}
         {#if mmrOld}
             <h2>{mmr.replace(/[^\w\s]/gi, '')} ({mmrOld.replace(/[^\w\s]/gi, '')})</h2>

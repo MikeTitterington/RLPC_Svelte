@@ -15,6 +15,12 @@
     let mmr = data.mmr
     let mmrOld = data.mmrOld
     let gameStats = data.gameStats;
+    let elc = ""
+    if (player[0][30] == 'Y'){
+        elc = "ELC"
+    }else {
+        elc = ""
+    }
 </script>
 <svelte:head>
 	<title>{name}</title>
@@ -29,7 +35,7 @@
                     <h2 class='pt-4'>Contract: Max Contract with {player[0][4]}</h2>
                 {/if}
                 {#if player[0][10].length > 0 && !player[0][10].includes("MAX")}
-                    <h2 class='pt-4'>Contract: Season {(parseInt(player[0][10])-parseInt(player[0][11])+1)} of {player[0][10]} with {player[0][4]}</h2>
+                    <h2 class='pt-4'>Contract: Season {(parseInt(player[0][10])-parseInt(player[0][11])+1)} of {player[0][10]} with {player[0][4]} {elc}</h2>
                 {/if}
                 {#if player[0][10].length == 0 && !player[0][10].includes("MAX")}
                     <h2 class='pt-4'>Contract: None</h2>

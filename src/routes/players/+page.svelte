@@ -162,17 +162,17 @@
 		{#if showAll}
 			{#each filteredPlayers as player}
 				{#if player[10]}
-					<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={ player[4] + ": Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
+					<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={ player[4] + ": Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
 				{:else}
-					<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
+					<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
 				{/if}			
 			{/each}
 		{:else}
 			{#each filteredPlayers.slice(0, 50) as player}
 				{#if player[10]}
-					<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={ player[4] + ": Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
+					<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={ player[4] + ": Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
 				{:else}
-					<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}/>
+					<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
 				{/if}
 			{/each}
 		{/if}

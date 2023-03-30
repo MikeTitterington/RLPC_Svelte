@@ -28,17 +28,17 @@ export async function load ({fetch, params}) {
     if (league == "Major") {
         capSpace = cap[0]
     }else if (league == "AAA"){
-        // capSpace = cap[4]
-        capSpace = "6611"
+        capSpace = cap[4]
+        // capSpace = "6611"
     }else if (league == "AA"){
-        // capSpace = cap[8]
-        capSpace = "6159"
+        capSpace = cap[8]
+        // capSpace = "6159"
     }else if (league == "A"){
-        // capSpace = cap[12]
-        capSpace = "5777"
+        capSpace = cap[12]
+        // capSpace = "5777"
     }else if (league == "Independent"){
-        // capSpace = cap[16]
-        capSpace = "5044"
+        capSpace = cap[16]
+        // capSpace = "5044"
     }else if (league == "Maverick"){
         capSpace = cap[20]
     }

@@ -16,6 +16,7 @@
 	let minMMR = 0
 	let maxMMR = 99999
 	let selectTeam = ''
+	
 	function filterTeams(value) {
 		let temp = [... teamsIndy]
 		if (showPlaying){
@@ -32,7 +33,6 @@
 	
 	function filterMore(searchTerm, showPlaying, minMMR, maxMMR, selectTeam) {
 		let temp = filterTeams(searchTerm)
-		console.log(temp)
 		if (showPlaying){
 			temp = temp.filter(team => team[31] == "FALSE");
 		}
@@ -44,7 +44,6 @@
 			}
 		}
 		temp = temp.filter(team => team[3] > minMMR).filter(team => team[3] < maxMMR);
-		console.log(temp)
 		return temp
 	}
 	console.log(showAll)
@@ -162,7 +161,7 @@
 		{#if showAll}
 			{#each filteredPlayers as player}
 				{#if player[10]}
-					<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={ player[4] + ": Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
+					<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={ player[4] + ": Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 4]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
 				{:else}
 					<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
 				{/if}			
@@ -170,7 +169,7 @@
 		{:else}
 			{#each filteredPlayers.slice(0, 50) as player}
 				{#if player[10]}
-					<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={ player[4] + ": Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
+					<Player name={player[playerNameH]}, region={player[playerRegionH]}, contract={ player[4] + ": Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 4]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
 				{:else}
 					<Player name={player[playerNameH]}, region={player[playerRegionH]}, platform={player[playerPlatformH]}, mmr={player[playerMMRH]}, id={player[playerIDH]}, elc={player[30]}/>
 				{/if}

@@ -100,7 +100,7 @@
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][5]}
-                            <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
+                            <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 4]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
                         {/if}
                     {/each}
                 </div>
@@ -120,7 +120,7 @@
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][13]}
-                            <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
+                            <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 4]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
                         {/if}
                     {/each}
                 </div>
@@ -136,7 +136,7 @@
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][14]}
-                            <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
+                            <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 4]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
                         {/if}
                     {/each}
                 </div>
@@ -151,7 +151,7 @@
                 <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-1 text-center col-span-2'>
                     {#each players as player}
                         {#if player[4] == team[0][15]}
-                            <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
+                            <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 4]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
                         {/if}
                     {/each}
                 </div>

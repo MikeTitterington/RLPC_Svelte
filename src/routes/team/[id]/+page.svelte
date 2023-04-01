@@ -82,9 +82,9 @@
     <div class='py-4 grid gap-4 md:grid-cols-4 grid-cols-2 text-center'>
         {#each players as player}
             {#if control[player[0]]}
-                <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, goals={control[player[0]][4]}, assists={control[player[0]][5]}, saves={control[player[0]][6]}, goalspg={control[player[0]][9]}, assistspg={control[player[0]][10]}, savespg={control[player[0]][11]}, elc={player[30]}/>
+                <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 4]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, goals={control[player[0]][4]}, assists={control[player[0]][5]}, saves={control[player[0]][6]}, goalspg={control[player[0]][9]}, assistspg={control[player[0]][10]}, savespg={control[player[0]][11]}, elc={player[30]}/>
             {:else}
-                <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 5]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
+                <Player name={player[0]}, id={player[player.length - 11]}, contract={"Season " + (parseInt(player[10])-parseInt(player[11])+1) + " of " + player[10]}, playerOp={player[player.length - 5]}, orgOp={player[player.length - 4]} region={player[1]}, platform={player[2]}, mmr={player[3]}, mmrOld={player[8]}, elc={player[30]}/>
             {/if}
         {/each}
     </div>

@@ -8,7 +8,12 @@
     let fullSchedule = data.fullSchedule
     let teams = []
     let count = 0;
-
+    let majorCap = data.majorCap
+    let aaaCap = data.aaaCap
+    let aaCap = data.aaCap
+    let aCap = data.aCap
+    let indyCap = data.indyCap
+    let cap = "9999"
     function getTeams(item) {
         if (!teams.includes(item[4])){
             teams.push(item[4])
@@ -20,6 +25,21 @@
             filteredPlayers = fullSchedule.filter(team => team[5].toLowerCase() == value.toLowerCase());
             teams = []
             filteredPlayers.forEach(getTeams);
+            if (value == 'Major'){
+                cap = majorCap
+            }else if (value == 'AAA'){
+                cap = aaaCap
+
+            }else if (value == 'AA'){
+                cap = aaCap
+                
+            }else if (value == 'A'){
+                cap = aCap
+                
+            }else if (value == 'Independent'){
+                cap = indyCap
+                
+            }
             return fullSchedule.filter(team => team[5].toLowerCase() == value.toLowerCase());
 		}else {
             filteredPlayers = [... schedule];
@@ -62,7 +82,7 @@
                                 {#each teams.splice(0, teams.length/2) as teamTable}
                                     <thead class="border-b bg-gray-600">
                                         <th colspan="4" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
-                                        <th colspan="1" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center">Total MMR: {getSum(filteredPlayers.filter(team => team[4] == teamTable))}</th>
+                                        <th colspan="1" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center">{getSum(filteredPlayers.filter(team => team[4] == teamTable))}/{cap} - {cap-getSum(filteredPlayers.filter(team => team[4] == teamTable))} Left</th>
                                     </thead>
                                     <thead class="border-b bg-gray-600">
                                         <th scope="col" class="text-xl font-bold text-white px-6 text-center">Team</th>
@@ -119,7 +139,7 @@
                                 {#each teams.splice(teams.length/2, teams.length) as teamTable}
                                     <thead class="border-b bg-gray-600">
                                         <th colspan="4" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
-                                        <th colspan="1" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center">Total MMR: {getSum(filteredPlayers.filter(team => team[4] == teamTable))}</th>
+                                        <th colspan="1" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center">{getSum(filteredPlayers.filter(team => team[4] == teamTable))}/{cap} - {cap-getSum(filteredPlayers.filter(team => team[4] == teamTable))} Left</th>
                                     </thead>
                                     <thead class="border-b bg-gray-600">
                                         <th scope="col" class="text-xl font-bold text-white px-6 text-center">Team</th>

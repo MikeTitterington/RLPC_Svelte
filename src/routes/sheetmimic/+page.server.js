@@ -29,11 +29,22 @@ function findHeaderCol(headers, name){
 }
 
 export async function load ({fetch}) {
-    let rangeP4 = 'ranges=Players!A1:AJ1&ranges=Players!A2:AJ'
+    let rangeP4 = 'ranges=Players!A1:AJ1&ranges=Players!A2:AJ&ranges=MMR%20Cutoff%20Calculations!A21:A41'
     let fullSchedule = await getSheets(sheetsStoreP4, rangeP4)
     let Headers = fullSchedule[0]
     let PlayerH = findHeaderCol(Headers, "Username")
     let PlayingH = findHeaderCol(Headers, "Not Playing")
+    let cap = fullSchedule[2]['values'];
+    let majorCap = "999999"
+    let aaaCap = "999999"
+    let aaCap = "999999"
+    let aCap = "999999"
+    let indyCap = "999999"
+    majorCap = cap[0]
+    aaaCap = cap[4]
+    aaCap = cap[8]
+    aCap = cap[12]
+    indyCap = cap[16]
     fullSchedule = fullSchedule[1]['values']
     fullSchedule = fullSchedule.filter(team => team[PlayingH] != 'TRUE' && (team[4] != "Free Agent" && team[4] != "Draftee" && team[4] != "Waitlist"))
     
@@ -50,7 +61,15 @@ export async function load ({fetch}) {
         // names must be equal
         return 0;
     });
+
+
+
     return{
-        fullSchedule : fullSchedule
+        fullSchedule : fullSchedule,
+        majorCap : majorCap,
+        aaaCap : aaaCap,
+        aaCap : aaCap,
+        aCap : aCap,
+        indyCap : indyCap
     }
 }

@@ -49,23 +49,45 @@
             <div class="flex flex-col">
                 <div class="sm:-mx-6 lg:-mx-8">
                     <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="overflow-hidden">
-                            <table class="min-w-full text-center" id='myTable2'>
-                                {#each teams as teamTable}
+                        <div class="overflow-hidden grid gap-4 grid-cols-2">
+                            <table class="min-w-50 text-center" id='myTable2'>
+                                {#each teams.splice(0, teams.length/2) as teamTable}
+                                    <thead class="border-b bg-gray-600">
+                                        <th colspan="5" scope="col" class="text-xl font-bold text-white px-6 py-1 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
+                                    </thead>
+                                    <tbody>
+                                        {#each filteredPlayers.filter(team => team[4] == teamTable) as player}
+                                            <tr class='py-4 px-6'>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{player[4]}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{player[0]}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{player[3]}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{player[8]}</td>
+                                                {#if player[10] == 'MAX'}
+                                                    <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>Season {3-player[11]+1} of Max Contract</td>
+                                                {:else}
+                                                    <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>Season {player[10]-player[11]+1} of {player[10]}</td>
+                                                {/if}
+                                            </tr>
+                                        {/each}
+                                    </tbody>
+                                {/each}
+                            </table>
+                            <table class="min-w-50 text-center" id='myTable2'>
+                                {#each teams.splice(teams.length/2, teams.length) as teamTable}
                                     <thead class="border-b bg-gray-600">
                                         <th colspan="5" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
                                     </thead>
                                     <tbody>
                                         {#each filteredPlayers.filter(team => team[4] == teamTable) as player}
-                                            <tr>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>{player[4]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>{player[0]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>{player[3]}</td>
-                                                <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>{player[8]}</td>
+                                            <tr class='py-4 px-6'>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{player[4]}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{player[0]}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{player[3]}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{player[8]}</td>
                                                 {#if player[10] == 'MAX'}
-                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>Season {3-player[11]+1} of Max Contract</td>
+                                                    <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>Season {3-player[11]+1} of Max Contract</td>
                                                 {:else}
-                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>Season {player[10]-player[11]+1} of {player[10]}</td>
+                                                    <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>Season {player[10]-player[11]+1} of {player[10]}</td>
                                                 {/if}
                                             </tr>
                                         {/each}

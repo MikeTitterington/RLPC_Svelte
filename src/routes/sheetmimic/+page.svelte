@@ -53,7 +53,7 @@
                             <table class="min-w-full text-center" id='myTable2'>
                                 {#each teams as teamTable}
                                     <thead class="border-b bg-gray-600">
-                                            <th colspan="4" scope="col" class="text-xl font-bold text-white px-6 py-4">{teamTable}</th>
+                                        <th colspan="5" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
                                     </thead>
                                     <tbody>
                                         {#each filteredPlayers.filter(team => team[4] == teamTable) as player}
@@ -62,6 +62,11 @@
                                                 <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>{player[0]}</td>
                                                 <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>{player[3]}</td>
                                                 <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>{player[8]}</td>
+                                                {#if player[10] == 'MAX'}
+                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>Season {3-player[11]+1} of Max Contract</td>
+                                                {:else}
+                                                    <td class='text-lg text-gray-900 px-6 py-4 whitespace-nowrap bg-gray-300'>Season {player[10]-player[11]+1} of {player[10]}</td>
+                                                {/if}
                                             </tr>
                                         {/each}
                                     </tbody>
@@ -74,3 +79,10 @@
         {/if}
     </div>
 </div>
+<style>
+    img {
+        margin: auto;
+        height: 50px;
+        object-fit: contain;
+    }
+</style>

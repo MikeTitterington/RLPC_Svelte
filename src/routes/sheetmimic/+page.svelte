@@ -14,13 +14,12 @@
             teams.push(item[4])
         }
     }
-
+    
     async function filterTeams(value) {
 		if(value) {
             filteredPlayers = fullSchedule.filter(team => team[5].toLowerCase() == value.toLowerCase());
             teams = []
             filteredPlayers.forEach(getTeams);
-            console.log(teams)
             return fullSchedule.filter(team => team[5].toLowerCase() == value.toLowerCase());
 		}else {
             filteredPlayers = [... schedule];
@@ -28,7 +27,16 @@
 		}
 		
 	}
-    
+
+    const sumFunction = async (a, b) => a + b;
+
+    function getSum(players) {
+        let sum = 0
+        players.forEach(async (player) => {
+            sum += parseInt(player[3])
+        });
+        return sum
+    }
 	$: filterTeams(searchTerm);
 </script>
 <svelte:head>
@@ -53,7 +61,15 @@
                             <table class="min-w-50 text-center" id='myTable2'>
                                 {#each teams.splice(0, teams.length/2) as teamTable}
                                     <thead class="border-b bg-gray-600">
-                                        <th colspan="5" scope="col" class="text-xl font-bold text-white px-6 py-1 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
+                                        <th colspan="4" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
+                                        <th colspan="1" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center">Total MMR: {getSum(filteredPlayers.filter(team => team[4] == teamTable))}</th>
+                                    </thead>
+                                    <thead class="border-b bg-gray-600">
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Team</th>
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Player</th>
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Sheet MMR</th>
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Tracker MMR</th>
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Contract</th>
                                     </thead>
                                     <tbody>
                                         {#each filteredPlayers.filter(team => team[4] == teamTable) as player}
@@ -69,13 +85,48 @@
                                                 {/if}
                                             </tr>
                                         {/each}
+                                        {#if filteredPlayers.filter(team => team[4] == teamTable).length < 4}
+                                            <tr class='py-4 px-6'>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{teamTable}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                            </tr>
+                                        {/if}
+                                        {#if filteredPlayers.filter(team => team[4] == teamTable).length < 3}
+                                            <tr class='py-4 px-6'> 
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{teamTable}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                            </tr>
+                                        {/if}
+                                        {#if filteredPlayers.filter(team => team[4] == teamTable).length < 2}
+                                            <tr class='py-4 px-6'>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{teamTable}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                            </tr>
+                                        {/if}
                                     </tbody>
                                 {/each}
                             </table>
                             <table class="min-w-50 text-center" id='myTable2'>
                                 {#each teams.splice(teams.length/2, teams.length) as teamTable}
                                     <thead class="border-b bg-gray-600">
-                                        <th colspan="5" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
+                                        <th colspan="4" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
+                                        <th colspan="1" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center">Total MMR: {getSum(filteredPlayers.filter(team => team[4] == teamTable))}</th>
+                                    </thead>
+                                    <thead class="border-b bg-gray-600">
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Team</th>
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Player</th>
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Sheet MMR</th>
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Tracker MMR</th>
+                                        <th scope="col" class="text-xl font-bold text-white px-6 text-center">Contract</th>
                                     </thead>
                                     <tbody>
                                         {#each filteredPlayers.filter(team => team[4] == teamTable) as player}
@@ -91,6 +142,33 @@
                                                 {/if}
                                             </tr>
                                         {/each}
+                                        {#if filteredPlayers.filter(team => team[4] == teamTable).length < 4}
+                                            <tr class='py-4 px-6'>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{teamTable}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'></td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                            </tr>
+                                        {/if}
+                                        {#if filteredPlayers.filter(team => team[4] == teamTable).length < 3}
+                                            <tr class='py-4 px-6'> 
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{teamTable}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                            </tr>
+                                        {/if}
+                                        {#if filteredPlayers.filter(team => team[4] == teamTable).length < 2}
+                                            <tr class='py-4 px-6'>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>{teamTable}</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                                <td class='text-lg text-gray-900 whitespace-nowrap bg-gray-300'>-</td>
+                                            </tr>
+                                        {/if}
                                     </tbody>
                                 {/each}
                             </table>

@@ -48,6 +48,7 @@
 		
 	}
 
+
     const sumFunction = async (a, b) => a + b;
 
     function getSum(players) {
@@ -136,7 +137,7 @@
                                 {/each}
                             </table>
                             <table class="min-w-50 text-center" id='myTable2'>
-                                {#each teams.splice(teams.length/2, teams.length) as teamTable}
+                                {#each teams as teamTable}
                                     <thead class="border-b bg-gray-600">
                                         <th colspan="4" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center"><img src='/logos/{teamTable}_Logo.png'></th>
                                         <th colspan="1" scope="col" class="text-xl font-bold text-white px-6 py-4 text-center">{getSum(filteredPlayers.filter(team => team[4] == teamTable))}/{cap} - {cap-getSum(filteredPlayers.filter(team => team[4] == teamTable))} Left</th>

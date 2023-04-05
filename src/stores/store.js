@@ -4,7 +4,7 @@ export const teamsP4 = writable([]);
 export const teamsIndy = writable([]);
 
 export const sheetsP4 = writable('1Fu3jq_z7bGJ-2SaEtwNUxW3BUBnSCw9tFreEQO51DXU');
-export const sheetsIndy = writable('1Fu3jq_z7bGJ-2SaEtwNUxW3BUBnSCw9tFreEQO51DXU');
+export const sheetsIndy = writable('1jSE4pD8j1Vyjs8h6jhVAb7qFsKBRAXSSdP9QGm7-_hI');
 export const season = persist(writable('18'),cookieStorage(), 'season' )
 
 export const showStatsD = persist(writable(false), localStorage(), 'showStatsD');

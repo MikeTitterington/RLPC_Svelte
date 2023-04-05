@@ -54,7 +54,7 @@ export async function load ({ fetch, params }) {
     });
     let fullSchedule;
     try {
-        fullSchedule = scheduleP4[1]['values'].concat(scheduleP4[2]['values'], scheduleP4[3]['values'], scheduleP4[4]['values'], scheduleIndy[0]['values'], scheduleIndy[1]['values'])
+        fullSchedule = scheduleP4[1]['values'].concat(scheduleP4[2]['values'], scheduleP4[3]['values'], scheduleP4[4]['values'], scheduleIndy[0]['values'])
     } catch (error) {
         fullSchedule = []
     }

@@ -13,6 +13,11 @@
     let schedule = [];
 	let searchTerm = "";
 	let filteredTeams = [];
+    
+    $: {
+        fullSchedule = data.fullSchedule
+    }
+
     async function filterTeams(value) {
 		if(value) {
             filteredTeams = fullSchedule.filter(team => team[5].toLowerCase() == value.toLowerCase() || team[3].toLowerCase() == value.toLowerCase());
@@ -51,7 +56,7 @@
         {/each}
     </select>
     <div class='py-4 w-full grid gap-4 grid-cols-1 py-6 text-center rounded-md shadow-sm flex flex-col items-center overflow-x-auto'>
-        {#if filteredTeams.length > 1}
+        {#if filteredTeams.length >= 1}
             <div class="flex flex-col" in:fade="{{ duration:1000, ease:'circ' }}">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">

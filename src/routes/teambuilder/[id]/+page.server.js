@@ -42,6 +42,7 @@ export async function load ({fetch, params}) {
     }else if (league == "Maverick"){
         capSpace = cap[20]
     }
-    let filteredPlayers = teamsIndy.filter(player => player[0]).filter(player => player[5]==league)
+    let filteredPlayers = teamsIndy.filter(player => player[0]).filter(player => player[5]==league).filter(player => player[31]=="FALSE")
+    
     return{filteredPlayers, capSpace}
 }
